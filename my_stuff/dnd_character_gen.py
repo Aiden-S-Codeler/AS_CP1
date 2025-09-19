@@ -41,6 +41,41 @@ else:
     race_chosen = race_list[rand_race]
 print(f"Your race is: {race_chosen}")
 
+# where stats go
+stat_list = [stat_1, stat_2, stat_3, stat_4, stat_5, stat_6]
+str = 0
+dex = 0
+con = 0
+int = 0
+wis = 0
+char = 0
+while str == 0:
+    what_str = input("Which of your stats do you want to be your strength?")
+    if what_str.isdigit():
+        what_str = int(what_str)
+    else:
+        print("Setting strength to 5 for trolling.")
+        str = 5
+    if what_str in stat_list:
+        str = what_str
+        stat_list.remove(what_str)
+    else:
+        print("Setting strength to 5 for trolling.")
+        str = 5
+while dex == 0:
+    what_dex = input("Which of your stats do you want to be your dexterity?")
+    if what_dex.isdigit():
+        what_dex = int(what_dex)
+    else:
+        print("Setting dexterity to 5 for trolling.")
+        dex = 5
+    if what_dex in stat_list:
+        dex = what_dex
+        stat_list.remove(what_dex)
+    else:
+        print("Setting dexterity to 5 for trolling.")
+        dex = 5
+
 # Background
 
 rand_personality = random.randint(1, 8)
