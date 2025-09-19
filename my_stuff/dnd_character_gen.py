@@ -26,10 +26,12 @@ rand_class = int(random.randint(0, 12))
 class_chosen = class_list[rand_class]
 print(f"Your class is: {class_chosen}")
 
-race_list = ["Dragon Born", "Dwarf", "Elf", "Gnome", "Half Elf", "Halfling", "Half Orc", "Human", "Teifling", "Aarakocra", "Aasimar", "Air Genasi", "Bug Bear", "Centaur", "Changeling", "Deep Gnome", "Duergar", "Earth Genasi", "Eladrin", "Fairy", "Firbolg", "Fire Genasi", "Githyanki", "Githzerai", "Goblin", "Goliath", "Harengon", "Hobgoblin", "Kenku", "Kobold", "Lizardfolk", "Minotaur", "Orc", "Satyr", "Sea Elf", "Shadar Kai", "Shifter", "Tabaxi", "Tortle", "Triton", "Water Genasi", "Yuan-Ti"]
+race_list = ["Dragonborn", "Dwarf", "Elf", "Gnome", "Half Elf", "Halfling", "Half Orc", "Human", "Teifling", "Aarakocra", "Aasimar", "Air Genasi", "Bug Bear", "Centaur", "Changeling", "Deep Gnome", "Duergar", "Earth Genasi", "Eladrin", "Fairy", "Firbolg", "Fire Genasi", "Githyanki", "Githzerai", "Goblin", "Goliath", "Harengon", "Hobgoblin", "Kenku", "Kobold", "Lizardfolk", "Minotaur", "Orc", "Satyr", "Sea Elf", "Shadar Kai", "Shifter", "Tabaxi", "Tortle", "Triton", "Water Genasi", "Yuan-Ti"]
 rand_race = int(random.randint(0, 41))
-race_chosen = race_list[rand_race]
 if rand_race == 0:
-    dragon_born_list = ["Red", "Blue", "Black", "White", "Green", "Copper", "Gold", "Brass", "Silver", "Bronze", "", "", "", "", ""]
-    rand_dragon_born = int(random.randint(0, 14))
+    dragonborn_list = ["Red", "Blue", "Black", "White", "Green", "Copper", "Gold", "Brass", "Silver", "Bronze", "Amethyst", "Crystal", "Emerald", "Sapphire", "Topaz"]
+    rand_dragonborn = int(random.randint(0, 14))
+    race_chosen = dragonborn_list[rand_dragonborn] + " Dragonborn"
+else:
+    race_chosen = race_list[rand_race]
 print(f"Your race is: {race_chosen}")
