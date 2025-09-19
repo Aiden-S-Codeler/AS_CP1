@@ -46,7 +46,7 @@ stat_list = [stat_1, stat_2, stat_3, stat_4, stat_5, stat_6]
 str = 0
 dex = 0
 con = 0
-int = 0
+intel = 0
 wis = 0
 char = 0
 while str == 0:
@@ -62,6 +62,7 @@ while str == 0:
     else:
         print("Setting strength to 5 for trolling.")
         str = 5
+print(f"remaining stats are: {stat_list}")
 while dex == 0:
     what_dex = input("Which of your stats do you want to be your dexterity?")
     if what_dex.isdigit():
@@ -75,7 +76,63 @@ while dex == 0:
     else:
         print("Setting dexterity to 5 for trolling.")
         dex = 5
-
+print(f"remaining stats are: {stat_list}")
+while con == 0:
+    what_con = input("Which of your stats do you want to be your constitution?")
+    if what_con.isdigit():
+        what_con = int(what_con)
+    else:
+        print("Setting constitution to 5 for trolling.")
+        con = 5
+    if what_con in stat_list:
+        con = what_con
+        stat_list.remove(what_con)
+    else:
+        print("Setting constitution to 5 for trolling.")
+        con = 5
+print(f"remaining stats are: {stat_list}")
+while intel == 0:
+    what_intel = input("Which of your stats do you want to be your inteligence?")
+    if what_intel.isdigit():
+        what_intel = int(what_intel)
+    else:
+        print("Setting inteligence to 5 for trolling.")
+        intel = 5
+    if what_intel in stat_list:
+        intel = what_intel
+        stat_list.remove(what_intel)
+    else:
+        print("Setting inteligence to 5 for trolling.")
+        intel = 5
+print(f"remaining stats are: {stat_list}")
+while wis == 0:
+    what_wis = input("Which of your stats do you want to be your wisdom?")
+    if what_wis.isdigit():
+        what_wis = int(what_wis)
+    else:
+        print("Setting wisdom to 5 for trolling.")
+        wis = 5
+    if what_wis in stat_list:
+        wis = what_wis
+        stat_list.remove(what_wis)
+    else:
+        print("Setting wisdom to 5 for trolling.")
+        wis = 5
+print(f"remaining stats are: {stat_list}")
+while char == 0:
+    what_char = input("Which of your stats do you want to be your charisma?")
+    if what_char.isdigit():
+        what_char = int(what_char)
+    else:
+        print("Setting charisma to 5 for trolling.")
+        char = 5
+    if what_char in stat_list:
+        char = what_char
+        stat_list.remove(what_char)
+    else:
+        print("Setting charisma to 5 for trolling.")
+        char = 5
+print(f"remaining stats are: {stat_list}")
 # Background
 
 rand_personality = random.randint(1, 8)
