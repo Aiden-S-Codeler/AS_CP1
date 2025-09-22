@@ -44,25 +44,25 @@ print(f"Your race is: {race_chosen}")
 
 # where stats go
 stat_list = [stat_1, stat_2, stat_3, stat_4, stat_5, stat_6]
-str = 0
+stren = 0
 dex = 0
 con = 0
 intel = 0
 wis = 0
 char = 0
-while str == 0:
-    what_str = input("Which of your stats do you want to be your strength?")
-    if what_str.isdigit():
-        what_str = int(what_str)
+while stren == 0:
+    what_stren = input("Which of your stats do you want to be your strength?")
+    if what_stren.isdigit():
+        what_stren = int(what_stren)
     else:
         print("Setting strength to 5 for trolling.")
-        str = 5
-    if what_str in stat_list:
-        str = what_str
-        stat_list.remove(what_str)
+        stren = 5
+    if what_stren in stat_list:
+        stren = what_stren
+        stat_list.remove(what_stren)
     else:
         print("Setting strength to 5 for trolling.")
-        str = 5
+        stren = 5
 print(f"remaining stats are: {stat_list}")
 while dex == 0:
     what_dex = input("Which of your stats do you want to be your dexterity?")
@@ -133,7 +133,8 @@ while char == 0:
     else:
         print("Setting charisma to 5 for trolling.")
         char = 5
-print(f"Your stats are: strength: {}")
+print(f"Recap:\nYour class is: {class_chosen}\nYour race is: {race_chosen}")
+print(f"Your stats are: strength: {stren}, dexterity: {dex}, constitution: {con}, inteligence: {intel}, wisdom: {wis}, dexterity: {dex}")
 # Background
 
 rand_personality = random.randint(1, 8)
