@@ -133,7 +133,7 @@ while char == 0:
     else:
         print("Setting charisma to 5 for trolling.")
         char = 5
-print(f"remaining stats are: {stat_list}")
+print(f"Your stats are: strength: {}")
 # Background
 
 rand_personality = random.randint(1, 8)
