@@ -135,8 +135,16 @@ while char == 0:
         char = 5
 print(f"Recap:\nYour class is: {class_chosen}\nYour race is: {race_chosen}")
 print(f"Your stats are: strength: {stren}, dexterity: {dex}, constitution: {con}, inteligence: {intel}, wisdom: {wis}, dexterity: {dex}")
+d10_hlist = []
+d8_hlist = []
+d6_hlist = []
+
 # Background
 
+background_list = ["Acolyte", "Charlatan", "Criminal/Spy", "Entertainer", "Folk Hero", "Gladiator", "Guild Artisan", "Hermit", "Knight", "Noble", "Outlander", "Pirate", "Sage", "Sailor", "Soldier", "Urchin"]
+rand_background = int(random.randint(0, 15))
+background_chosen = background_list[rand_background]
+print(f"Your background is: {background_chosen}")
 rand_personality = random.randint(1, 8)
 rand_ideal = random.randint(1, 6)
 rand_bond = random.randint(1, 6)
