@@ -146,23 +146,23 @@ d8_hlist = ["Artificer", "Bard", "Cleric", "Druid", "Monk", "Rogue", "Warlock"]
 d6_hlist = ["Sorceror", "Wizard"]
 if class_chosen in d12_hlist:
     health = 12
-    for i in range(lvl):
+    for i in range(lvl - 1):
         health = health + random.randint(1, 12)
 elif class_chosen in d10_hlist:
     health = 10
-    for i in range(lvl):
+    for i in range(lvl - 1):
         health = health + random.randint(1, 10)
 elif class_chosen in d8_hlist:
     health = 8
-    for i in range(lvl):
+    for i in range(lvl - 1):
         health = health + random.randint(1, 8)
 elif class_chosen in d6_hlist:
     health = 6
-    for i in range(lvl):
+    for i in range(lvl - 1):
         health = health + random.randint(1, 6)
 else:
     pass
-print(f"Your total health is {health}")
+print(f"Your total health at your level is {health}")
 
 # Background
 
