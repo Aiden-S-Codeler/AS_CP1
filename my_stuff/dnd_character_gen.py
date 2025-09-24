@@ -1,5 +1,7 @@
 # AS dnd random gen
 
+lvl = int(input("What is your starting level?"))
+
 # Stats
 
 import random
@@ -135,9 +137,32 @@ while char == 0:
         char = 5
 print(f"Recap:\nYour class is: {class_chosen}\nYour race is: {race_chosen}")
 print(f"Your stats are: strength: {stren}, dexterity: {dex}, constitution: {con}, inteligence: {intel}, wisdom: {wis}, dexterity: {dex}")
-d10_hlist = []
-d8_hlist = []
-d6_hlist = []
+
+# Health
+health = 0
+d12_hlist = ["Barbarian"]
+d10_hlist = ["Fighter", "Pladin", "Ranger"]
+d8_hlist = ["Artificer", "Bard", "Cleric", "Druid", "Monk", "Rogue", "Warlock"]
+d6_hlist = ["Sorceror", "Wizard"]
+if class_chosen in d12_hlist:
+    health = 12
+    for i in range(lvl):
+        health = health + random.randint(1, 12)
+elif class_chosen in d10_hlist:
+    health = 10
+    for i in range(lvl):
+        health = health + random.randint(1, 10)
+elif class_chosen in d8_hlist:
+    health = 8
+    for i in range(lvl):
+        health = health + random.randint(1, 8)
+elif class_chosen in d6_hlist:
+    health = 6
+    for i in range(lvl):
+        health = health + random.randint(1, 6)
+else:
+    pass
+print(f"Your total health is {health}")
 
 # Background
 
