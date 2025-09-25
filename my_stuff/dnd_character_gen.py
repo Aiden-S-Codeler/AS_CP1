@@ -1,7 +1,5 @@
 # AS dnd random gen
 
-lvl = int(input("What is your starting level?"))
-
 # Stats
 
 import random
@@ -139,6 +137,7 @@ print(f"Recap:\nYour class is: {class_chosen}\nYour race is: {race_chosen}")
 print(f"Your stats are: strength: {stren}, dexterity: {dex}, constitution: {con}, inteligence: {intel}, wisdom: {wis}, dexterity: {dex}")
 
 # Health
+lvl = int(input("What is your starting level?"))
 health = 0
 d12_hlist = ["Barbarian"]
 d10_hlist = ["Fighter", "Pladin", "Ranger"]
