@@ -4,8 +4,10 @@ chosen = False
 balance = 100
 bet = 0
 import random
-
+# can you fix the balance thing
 def roulette():
+    global balance
+    global bet
     correct_color = False
     while correct_color == False:
         cbet = input("What color do you want to bet on? (red, black, green)\n")
@@ -30,8 +32,10 @@ def roulette():
         rnumber = "black"
     if rnumber == cbet:
         balance += bet
+        print(f"You win! Current balance: {balance}")
     else:
         balance -= bet
+        print(f"You lose. Current balance: {balance}")
     bet = 0
         
 
@@ -54,4 +58,14 @@ while start == False:
         pass
     else:
         pass
-    start = True
+    while chosen == True:
+        replay = input("Would you like to play again? Please input Y is yes or N if no.")
+        if replay == "Y":
+            pass
+            chosen = False
+        elif replay == "N":
+            print("Ending program.")
+            start = True
+            chosen = False
+        else:
+            print("Invalid entry.")
