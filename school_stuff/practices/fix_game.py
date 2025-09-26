@@ -9,7 +9,7 @@ def start_game():
     attempts = 0
     game_over = False
     while not game_over:
-        # below is is string, and cannot be compared to an int (old: input("Enter your guess: ")) syntax error
+        # below is is string, and cannot be compared to an int (old: input("Enter your guess: ")) runtime error
         guess = int(input("Enter your guess: "))
         # below will only allow you do 9 attempts (old: if attempts >= max_attempts:) logic error
         if attempts > max_attempts:
