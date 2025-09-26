@@ -28,6 +28,11 @@ def roulette():
         rnumber = "red"
     else:
         rnumber = "black"
+    if rnumber == cbet:
+        balance += bet
+    else:
+        balance -= bet
+    bet = 0
         
 
 while start == False:
@@ -39,3 +44,14 @@ while start == False:
             chosen = True
         else:
             print("Game choice not among games available.")
+    if game_choose == "roulette":
+        roulette()
+    elif game_choose == "black jack":
+        pass
+    elif game_choose == "texas hold 'em":
+        pass
+    elif game_choose == "slots":
+        pass
+    else:
+        pass
+    start = True
