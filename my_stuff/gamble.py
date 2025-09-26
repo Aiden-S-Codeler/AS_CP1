@@ -3,8 +3,32 @@ start = False
 chosen = False
 balance = 100
 bet = 0
-def roulette():
+import random
 
+def roulette():
+    correct_color = False
+    while correct_color == False:
+        cbet = input("What color do you want to bet on? (red, black, green)\n")
+        if cbet == "red" or cbet == "black" or cbet == "green":
+            correct_color = True
+        else:
+            print("Please choose a valid color.")
+    is_num = False
+    while is_num == False:
+        bet = input(f"How much do you want to bet?\nCurrent balance: {balance}\n")
+        if bet.isdigit():
+            is_num = True
+            bet = int(bet)
+        else:
+            print("Please choose number.")
+    rnumber = random.randint(0,100)
+    if rnumber == 0:
+        rnumber = "green"
+    elif rnumber % 2 == 0:
+        rnumber = "red"
+    else:
+        rnumber = "black"
+        
 
 while start == False:
     while chosen == False:
