@@ -108,11 +108,20 @@ def blackjack():
                 print(f"You busted with a value of {start_val}.")
                 balance -= bet
                 print(f"You lose. Current balance: {balance}")
-                break
+                done = True
             else:
                 print(f"Current value: {start_val}")
+        elif hit_stand == "stand":
+            if start_val > deal_start_val:
+                balance += bet
+                print(f"You win! Dealer had {deal_start_val}. Current balance: {balance}")
+                done = True
+            else:
+                balance -= bet
+                print(f"You lose. Dealer had {deal_start_val}. Current balance: {balance}")
+                done = True
         else:
-            pass
+            print("Invalid choice.")
 
 while start == False:
     while chosen == False:
