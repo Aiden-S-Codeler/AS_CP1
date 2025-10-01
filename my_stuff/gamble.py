@@ -112,7 +112,11 @@ def blackjack():
             else:
                 print(f"Current value: {start_val}")
         elif hit_stand == "stand":
-            if start_val > deal_start_val:
+            if start_val == 21:
+                balance += bet * 2
+                print(f"You got a black jack! Dealer had {deal_start_val}. Current balance: {balance}")
+                done = True
+            elif start_val > deal_start_val:
                 balance += bet
                 print(f"You win! Dealer had {deal_start_val}. Current balance: {balance}")
                 done = True
@@ -147,7 +151,7 @@ while start == False:
     else:
         pass
     while chosen == True:
-        replay = input("Would you like to play a new game? Please input Y is yes or N if no.\n")
+        replay = input("Would you like to play a new game? Please input Y if yes or N if no.\n")
         if replay == "Y":
             pass
             chosen = False
