@@ -5,6 +5,7 @@ balance = 100
 bet = 0
 card_list = []
 import random
+import time
 
 def roulette():
     global balance
@@ -41,6 +42,8 @@ def roulette():
         balance -= bet
         print(f"You lose. Current balance: {balance}")
     bet = 0
+    print("")
+    time.sleep(1)
 
 def slots():
     global balance
@@ -74,6 +77,8 @@ def slots():
         balance -= bet
         print(f"You lose. Current balance: {balance}")
     bet = 0
+    print("")
+    time.sleep(1)
 
 def blackjack():
     global balance
@@ -127,6 +132,8 @@ def blackjack():
         else:
             print("Invalid choice.")
     bet = 0
+    print("")
+    time.sleep(1)
 
 while start == False:
     while chosen == False:
@@ -157,6 +164,7 @@ while start == False:
             chosen = False
         elif replay == "N":
             print("Ending program.")
+            time.sleep(1)
             start = True
             chosen = False
         else:
