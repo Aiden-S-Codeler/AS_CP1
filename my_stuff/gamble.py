@@ -122,28 +122,32 @@ def blackjack():
                 done = True
         else:
             print("Invalid choice.")
+    bet = 0
 
 while start == False:
     while chosen == False:
         game_list = ["black jack", "texas hold 'em", "roulette", "slots"]
         game_choose = input("What game would you like to play?\nchoices: black jack, texas hold 'em, roulette, slots\n")
         if game_choose in game_list:
-            print("Good choice.")
             chosen = True
         else:
             print("Game choice not among games available.")
     if game_choose == "roulette":
+        print("Good choice.")
         roulette()
     elif game_choose == "black jack":
-        pass
+        print("Good choice.")
+        blackjack()
     elif game_choose == "texas hold 'em":
+        print("This game has not been made yet.")
         pass
     elif game_choose == "slots":
+        print("Good choice.")
         slots()
     else:
         pass
     while chosen == True:
-        replay = input("Would you like to play again? Please input Y is yes or N if no.\n")
+        replay = input("Would you like to play a new game? Please input Y is yes or N if no.\n")
         if replay == "Y":
             pass
             chosen = False
