@@ -3,7 +3,6 @@ start = False
 chosen = False
 balance = 100
 bet = 0
-card_list = []
 import random
 import time
 
@@ -83,7 +82,6 @@ def slots():
 def blackjack():
     global balance
     global bet
-    global card_list
     start_val = random.randint(1, 10) + random.randint(1, 10)
     deal_start_val = random.randint(1, 10) + random.randint(1, 10)
     while deal_start_val < 16:
@@ -150,7 +148,7 @@ while start == False:
         print("Good choice.")
         blackjack()
     elif game_choose == "texas hold 'em":
-        print("This game has not been made yet.")
+        print("This game will never be made.")
         pass
     elif game_choose == "slots":
         print("Good choice.")
