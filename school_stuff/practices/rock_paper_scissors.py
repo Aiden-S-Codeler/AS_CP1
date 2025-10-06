@@ -4,7 +4,7 @@ playing = True
 import random
 
 while playing == True:
-    play = input("rock, paper, or scissors?" )
+    play = input("rock, paper, or scissors? ")
     if play == "rock" or play == "paper" or play == "scissors":
         pass
     else:
