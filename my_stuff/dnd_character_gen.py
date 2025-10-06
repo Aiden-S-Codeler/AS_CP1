@@ -51,7 +51,7 @@ intel = 0
 wis = 0
 char = 0
 while stren == 0:
-    what_stren = input("Which of your stats do you want to be your strength?")
+    what_stren = input("Which of your stats do you want to be your strength? ")
     if what_stren.isdigit():
         what_stren = int(what_stren)
     else:
@@ -65,7 +65,7 @@ while stren == 0:
         stren = 5
 print(f"remaining stats are: {stat_list}")
 while dex == 0:
-    what_dex = input("Which of your stats do you want to be your dexterity?")
+    what_dex = input("Which of your stats do you want to be your dexterity? ")
     if what_dex.isdigit():
         what_dex = int(what_dex)
     else:
@@ -79,7 +79,7 @@ while dex == 0:
         dex = 5
 print(f"remaining stats are: {stat_list}")
 while con == 0:
-    what_con = input("Which of your stats do you want to be your constitution?")
+    what_con = input("Which of your stats do you want to be your constitution? ")
     if what_con.isdigit():
         what_con = int(what_con)
     else:
@@ -93,7 +93,7 @@ while con == 0:
         con = 5
 print(f"remaining stats are: {stat_list}")
 while intel == 0:
-    what_intel = input("Which of your stats do you want to be your inteligence?")
+    what_intel = input("Which of your stats do you want to be your inteligence? ")
     if what_intel.isdigit():
         what_intel = int(what_intel)
     else:
@@ -107,7 +107,7 @@ while intel == 0:
         intel = 5
 print(f"remaining stats are: {stat_list}")
 while wis == 0:
-    what_wis = input("Which of your stats do you want to be your wisdom?")
+    what_wis = input("Which of your stats do you want to be your wisdom? ")
     if what_wis.isdigit():
         what_wis = int(what_wis)
     else:
@@ -121,7 +121,7 @@ while wis == 0:
         wis = 5
 print(f"remaining stats are: {stat_list}")
 while char == 0:
-    what_char = input("Which of your stats do you want to be your charisma?")
+    what_char = input("Which of your stats do you want to be your charisma? ")
     if what_char.isdigit():
         what_char = int(what_char)
     else:
@@ -137,7 +137,7 @@ print(f"Recap:\nYour class is: {class_chosen}\nYour race is: {race_chosen}")
 print(f"Your stats are: strength: {stren}, dexterity: {dex}, constitution: {con}, inteligence: {intel}, wisdom: {wis}, dexterity: {dex}")
 
 # Health
-lvl = int(input("What is your starting level?"))
+lvl = int(input("What is your starting level? "))
 health = 0
 d12_hlist = ["Barbarian"]
 d10_hlist = ["Fighter", "Pladin", "Ranger"]
