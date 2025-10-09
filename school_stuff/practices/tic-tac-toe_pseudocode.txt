@@ -1,0 +1,114 @@
+#AS 2nd tic tac toe pseudocode
+
+game loop
+   while True:
+
+       ask if player want to play X or O
+       if they play X:
+           they go first
+       or if they play O:
+           robot goes first
+       else:
+           restart code for they chose an invalid option
+
+       board_list1[(1), (2), (3)]
+       board_list2[(4), (5), (6)]
+       board_list3[(7), (8), (9)]
+
+       while game is being played:
+X goes first
+            while they player hasnt chosen a spot they can play
+                if X is player:
+                    ask player where they want to play their first turn
+                    if the spot chosen has an X or O already:
+                        ask again
+                    else:
+                        move onto next code
+                else:
+                    robot chooses a rondom spot to play
+                    if the spot chosen has an X or O already:
+                        ask again
+                    else:
+                        move onto next code
+O goes second
+
+                if O is player:
+                    ask player where they want to play their first turn
+                    if the spot chosen has an X or O already:
+                        ask again
+                    else:
+                        move onto next turn
+                else:
+                    robot chooses a rondom spot to play
+                    if the spot chosen has an X or O already:
+                        ask again
+                    else:
+                        move onto next turn
+                
+                after each turn check if any of the possible win conditions have been made by either party
+                if (insert win condition here):
+                    if X reached the condition:
+                        X wins
+                    else:
+                        O wins
+                or if (insert win other condition here):
+                    if X reached the condition:
+                        X wins
+                    else:
+                        O wins
+                this continues for all win conditions
+                else:
+                    tie
+
+turns keep looping until game ends in win, loss, or tie
+W will represent both player and both
+possible ways to lose or win:
+    board_list1[(W), (2), (3)]
+    board_list2[(W), (5), (6)]
+    board_list3[(W), (8), (9)]
+
+    board_list1[(1), (W), (3)]
+    board_list2[(4), (W), (6)]
+    board_list3[(7), (W), (9)]
+
+    board_list1[(1), (2), (W)]
+    board_list2[(4), (5), (W)]
+    board_list3[(7), (8), (W)]
+
+    board_list1[(W), (W), (W)]
+    board_list2[(4), (5), (6)]
+    board_list3[(7), (8), (9)]
+
+    board_list1[(1), (2), (3)]
+    board_list2[(W), (W), (W)]
+    board_list3[(7), (8), (9)]
+
+    board_list1[(1), (2), (3)]
+    board_list2[(4), (5), (6)]
+    board_list3[(W), (W), (W)]
+
+    board_list1[(W), (2), (3)]
+    board_list2[(4), (W), (6)]
+    board_list3[(7), (8), (W)]
+
+    board_list1[(1), (2), (W)]
+    board_list2[(4), (W), (6)]
+    board_list3[(W), (8), (9)]
+
+example of tie:
+    board_list1[(X), (X), (O)]
+    board_list2[(O), (X), (X)]
+    board_list3[(X), (O), (O)]
+
+                if player wins:
+                    print "You win!!!"
+                or if robot wins:
+                    print "You lose."
+                else:
+                    print "you got a tie"
+                
+                ask if player wants to play again
+                    if yes:
+                        restart game
+                    else:
+                        end program
