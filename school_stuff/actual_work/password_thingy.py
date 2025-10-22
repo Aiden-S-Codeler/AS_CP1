@@ -1,5 +1,7 @@
 #AS 2nd
 
+
+
 #loop while they are making password
 while True:
 
@@ -70,6 +72,16 @@ while True:
         print("you have a very strong password")
     else:  
         # if point isn't one of the previous, then it ended up as a peice of text, and code should probably restart
+<<<<<<< HEAD
+        print("something broke. restarting... ")
+        continue
+
+    # ask if want to change password
+    while True:
+        pass_change = input("Is this the password you want")
+        if pass_change == "yes":
+            break
+=======
         print("something broke. Restarting...")
         continue
 
@@ -80,3 +92,4 @@ while True:
     else:
         print("Restaring...")
         continue
+>>>>>>> 84cbde62eb7392aa8a42405cd1e20f1483480313
