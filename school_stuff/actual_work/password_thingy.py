@@ -7,7 +7,7 @@ while True:
 
     # ask what password should be
 
-    password = input("What would you like you password to be?")
+    password = input("What would you like you password to be? ")
 
     # make / restart point counter
 
@@ -52,7 +52,7 @@ while True:
             pass
     
     for u in up_or_low_char:
-        if u.upper in password:
+        if u.upper() in password:
             point += 1
             break
         else:
@@ -72,6 +72,7 @@ while True:
         print("you have a very strong password")
     else:  
         # if point isn't one of the previous, then it ended up as a peice of text, and code should probably restart
+<<<<<<< HEAD
         print("something broke. restarting... ")
         continue
 
@@ -80,3 +81,15 @@ while True:
         pass_change = input("Is this the password you want")
         if pass_change == "yes":
             break
+=======
+        print("something broke. Restarting...")
+        continue
+
+    # ask if password is what they want, if yes; end, if not; restart
+    if input("Would you like to make this your password? ( yes / no (anything that is not yes or no will be counted as no)) ") == "yes":
+        print("Finalizing... ")
+        break
+    else:
+        print("Restaring...")
+        continue
+>>>>>>> 84cbde62eb7392aa8a42405cd1e20f1483480313
