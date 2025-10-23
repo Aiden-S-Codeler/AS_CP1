@@ -64,8 +64,8 @@ def slots():
     slot_3 = slots_pos[random.randint(0, 4)]
     print(f"---{slot_1}---{slot_2}---{slot_3}---")
     if slot_1 == "Slot" and slot_1 == slot_2 and slot_1 == slot_3:
-        print("JACK POT!")
         balance += bet * 10
+        print(f"JACK POT! Current balance: {balance}")
     elif slot_1 == slot_2 and slot_1 == slot_3:
         balance += bet * 5
         print(f"You win! Current balance: {balance}")
