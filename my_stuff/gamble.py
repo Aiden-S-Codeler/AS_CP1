@@ -104,6 +104,7 @@ def blackjack():
     done = False
     while done == False:
         print(f"You currently have a card value of: {start_val}")
+        print(f"Dealer's current value: {deal_start_val}")
         hit_stand = input("Would you like to hit or stand?: ")
         if hit_stand == "hit":
             start_val += random.randint(1, 10)
