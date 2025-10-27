@@ -158,34 +158,20 @@ print(f"Your total health at your level is {health}")
 bear_h = random.randint(1, 10) + random.randint(1, 10) + random.randint(1, 10) + random.randint(1, 10) + 12
 bear_ac = 11
 
-player_ac = 10 + dex - 10
-
 def bear_turn(health):
-    decide = random.randint(1, 3)
+    decide = random.randint(1, 2)
     if decide == 1:
         print("Bear used: claw")
         dice_roll = random.randint(1, 20) + 5
-        if dice_roll >= player_ac:
+        if dice_roll >= dex:
             health -= random.randint(1, 8) + 4
         else:
             print("bear missed")
     elif decide == 2:
         print("Bear used: bite")
         dice_roll = random.randint(1, 20) + 5
-        if dice_roll >= player_ac:
+        if dice_roll >= dex:
             health -= random.randint(1, 6) + random.randint(1, 6) + 4
-        else:
-            print("bear missed")
-    elif decide == 3:
-        print("Bear used: mual")
-        dice_roll = random.randint(1, 20) + 5
-        if dice_roll >= player_ac:
-            health -= random.randint(1, 6) + random.randint(1, 6) + 4
-        else:
-            print("bear missed")
-            dice_roll = random.randint(1, 20) + 5
-        if dice_roll >= player_ac:
-            health -= random.randint(1, 8) + 4
         else:
             print("bear missed")
     else:
@@ -194,7 +180,8 @@ def bear_turn(health):
 
 atk_boost = 0
 
-def player_turn(health, bear_h, player_ac, atk_boost):
+def player_turn(health, bear_h, atk_boost):
+    global dex
     while True:
         decide = input("What action would you like to take? 1: Attack Boost, 2: Defense Boost, 3: Healing, 4: Attack Spell. (Please choose the number value of you choice) ")
         if decide == "1":
@@ -202,8 +189,8 @@ def player_turn(health, bear_h, player_ac, atk_boost):
             print(f"Current boost to attacks: {atk_boost}")
             break
         elif decide == "2":
-            player_ac += 2
-            print(f"Current defence: {player_ac}")
+            dex = dex + 2
+            print(f"Current defence: {dex}")
             break
         elif decide == "3":
             health += random.randint(1, 12)
@@ -212,14 +199,14 @@ def player_turn(health, bear_h, player_ac, atk_boost):
         elif decide == "4":
             dice_roll = random.randint(1, 20) + (10 + (char - 10))
             if dice_roll >= bear_ac:
-                bear_h -= random.randint(1, 12) + (10 + (char - 10))
+                bear_h -= random.randint(1, 12) + (10 + (char - 10)) + atk_boost
             else:
                 print("you missed")
             break
         else:
             print("bad")
             continue
-    return(health, bear_h, player_ac, atk_boost)
+    return(health, bear_h, atk_boost)
 
 print("You, John Bard, a world renowned bard, are walking through a forest. You sit down on a mossy rock\nto practice your music, when suddenly, a brown bear jumps out of the bushes to attack you.\n")
 while True:
@@ -239,7 +226,7 @@ while True:
             else:
                 pass
             print(f"current player health: {health}")
-            health, bear_h, atk_boost, player_ac = player_turn(health, bear_h, atk_boost, player_ac)
+            health, bear_h, atk_boost = player_turn(health, bear_h, atk_boost)
             if bear_h <= 0:
                 print("You win!")
                 break
@@ -249,7 +236,7 @@ while True:
     else:
         print("You rolled highest. You go first.")
         while True:
-            health, bear_h, atk_boost, player_ac = player_turn(health, bear_h, atk_boost, player_ac)
+            health, bear_h, atk_boost = player_turn(health, bear_h, atk_boost)
             if bear_h <= 0:
                 print("You wins!")
                 break
