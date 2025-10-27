@@ -146,39 +146,109 @@ print(f"Your total health at your level is {health}")
 bear_h = random.randint(1, 10) + random.randint(1, 10) + random.randint(1, 10) + random.randint(1, 10) + 12
 bear_ac = 11
 
-player_ac = 10 - (10 - dex)
+player_ac = 10 + dex - 10
 
 def bear_turn(health):
     decide = random.randint(1, 3)
     if decide == 1:
         print("Bear used: claw")
-        dice_roll = random.randint(1, 20)
+        dice_roll = random.randint(1, 20) + 5
         if dice_roll >= player_ac:
             health -= random.randint(1, 8) + 4
         else:
             print("bear missed")
     elif decide == 2:
         print("Bear used: bite")
-        dice_roll = random.randint(1, 20)
+        dice_roll = random.randint(1, 20) + 5
         if dice_roll >= player_ac:
             health -= random.randint(1, 6) + random.randint(1, 6) + 4
         else:
             print("bear missed")
     elif decide == 3:
         print("Bear used: mual")
-        dice_roll = random.randint(1, 20)
+        dice_roll = random.randint(1, 20) + 5
         if dice_roll >= player_ac:
             health -= random.randint(1, 6) + random.randint(1, 6) + 4
         else:
             print("bear missed")
-            dice_roll = random.randint(1, 20)
+            dice_roll = random.randint(1, 20) + 5
         if dice_roll >= player_ac:
             health -= random.randint(1, 8) + 4
         else:
             print("bear missed")
     else:
         print("Something broke. My bad")
-    print(f"Current Health: {health}")
+    return(health)
 
-def player_turn(bear_h):
-    pass
+atk_boost = 0
+
+def player_turn(health, bear_h, player_ac, atk_boost):
+    while True:
+        decide = input("What action would you like to take? 1: Attack Boost, 2: Defense Boost, 3: Healing, 4: Attack Spell. (Please choose the number value of you choice) ")
+        if decide == "1":
+            atk_boost += 2
+            print(f"Current boost to attacks: {atk_boost}")
+            break
+        elif decide == "2":
+            player_ac += 2
+            print(f"Current defence: {player_ac}")
+            break
+        elif decide == "3":
+            health += random.randint(1, 12)
+            print(f"Current Health: {health}")
+            break
+        elif decide == "4":
+            dice_roll = random.randint(1, 20) + (10 + (char - 10))
+            if dice_roll >= bear_ac:
+                bear_h -= random.randint(1, 12) + (10 + (char - 10))
+            else:
+                print("you missed")
+            break
+        else:
+            print("bad")
+            continue
+    return(health, bear_h, player_ac, atk_boost)
+
+print("You, John Bard, a world renowned bard, are walking through a forest. You sit down on a mossy rock\nto practice your music, when suddenly, a brown bear jumps out of the bushes to attack you.\n")
+while True:
+    print("Deciding who goes first...")
+    bear_roll = random.randint(1, 20)
+    player_roll =  random.randint(1, 20)
+    if bear_roll == player_roll:
+        print("You and Bear rolled the same. Rolling competitive.")
+        continue
+    elif bear_roll > player_roll:
+        print("Bear rolled highest. It goes first.")
+        while True:
+            health = bear_turn(health)
+            if health <= 0:
+                print("Bear wins.")
+                break
+            else:
+                pass
+            print(f"current player health: {health}")
+            health, bear_h, atk_boost, player_ac = player_turn(health, bear_h, atk_boost, player_ac)
+            if bear_h <= 0:
+                print("You win!")
+                break
+            else:
+                pass
+            print(f"current bear health: {bear_h}")
+    else:
+        print("You rolled highest. You go first.")
+        while True:
+            health, bear_h, atk_boost, player_ac = player_turn(health, bear_h, atk_boost, player_ac)
+            if bear_h <= 0:
+                print("You wins!")
+                break
+            else:
+                pass
+            print(f"current bear health: {bear_h}")
+            health = bear_turn(health)
+            if health <= 0:
+                print("Bear wins.")
+                break
+            else:
+                pass
+            print(f"current player health: {health}")
+    break
