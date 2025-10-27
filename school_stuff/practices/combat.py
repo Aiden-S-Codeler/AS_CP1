@@ -1,18 +1,6 @@
 #AS 2nd combet simulator
 import random
 
-
-
-
-# Log out next time brub
-
-
-
-
-
-
-
-
 import random
 stat_1 = [int(random.randint(1, 6)), int(random.randint(1, 6)), int(random.randint(1, 6)), int(random.randint(1, 6))]
 stat_1.remove(min(stat_1))
