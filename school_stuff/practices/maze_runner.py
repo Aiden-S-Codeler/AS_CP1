@@ -54,10 +54,19 @@ def is_solvable(row_grid, col_grid):
     return False
 
 # 57-, looping maze production until the maze is solvable
-solvabilty = False
-while solvabilty == False:
+while is_solvable(row_grid, col_grid) == False:
     for x in range(2, 5):
-        for a in row_grid(x):
+        for a in range(6):
             open_close = random.randint(1, 2)
             if open_close == 1:
-                
+                row_grid[x][a] = "o"
+            else:
+                row_grid[x][a] = "c"
+    for y in range(2, 5):
+        for b in range(6):
+            open_close = random.randint(1, 2)
+            if open_close == 1:
+                col_grid[y][b] = "o"
+            else:
+                col_grid[y][b] = "c"
+print("what a solvable maze")
