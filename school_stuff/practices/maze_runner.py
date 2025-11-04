@@ -78,7 +78,7 @@ while solvability == False:
         continue
     is_solvable(row_grid, col_grid)
 
-# 82-124, making turtles, setting them to correct specs, and screen to make maze on
+# 82-, making turtles, setting them to correct specs, and screen to make maze on
 screen = turtle.Screen()
 ut1 = turtle.Turtle()
 ut2 = turtle.Turtle()
@@ -124,4 +124,12 @@ st5.teleport(0,-10)
 st6.teleport(0,-20)
 
 # 127-, commanding turtles to draw their part of the maze
-for 
+for a in range(6):
+    if col_grid[1][a] == 1:
+        ut1.pendown
+        ut1.forward(10)
+    else:
+        ut1.penup
+        ut1.forward(10)
+
+turtle.done
