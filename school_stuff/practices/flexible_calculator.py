@@ -1,37 +1,42 @@
 # AS 2nd Calculator the sequel
 
-#4-, creating adding system
+# 4-8, creating adding system
 def sum(*num):
-    while True:
-        add_num = input("Please enter a number. If you are done adding numbers, please say 'done'. ")
-        if add_num.isdigit():
-            num.append(float(add_num))
-        elif add_num.lower() == "done":
-            break
-        else:
-            print("invalid")
-            continue
     final = 0
     for i in num:
         final += i
     return final
 
-#
+# 11-18, creating averaging system
 def average(*num):
-    pass
+    final = 0
+    length = 0
+    for i in num:
+        final +=  i
+        length += 1
+    final = final / length
+    return final
 
-#
-def min(*num):
-    pass
+# 21-23, creating grabbing smallest number system
+def mini(*num):
+    final = min(num)
+    return final
 
-#
-def max(*num):
-    pass
+# 26-28, creating grabbing biggest number system
+def maxi(*num):
+    final = max(num)
+    return final
 
-#
+# 31-35, creating multiplying system
 def product(*num):
-    pass
+    final = 1
+    for i in num:
+        final *= i
+    return final
 
-funlist = []
-
-print(sum(funlist))
+# 38-41, running all systems
+print(sum(5, 6, 7, 8, 9, 1, 2, 3, 4))
+print(average(5, 6, 7, 8, 9, 1, 2, 3, 4))
+print(mini(5, 6, 7, 8, 9, 1, 2, 3, 4))
+print(maxi(5, 6, 7, 8, 9, 1, 2, 3, 4))
+print(product(5, 6, 7, 8, 9, 1, 2, 3, 4))
