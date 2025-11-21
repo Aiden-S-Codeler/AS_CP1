@@ -19,13 +19,14 @@ while True:
 def factorial(uinput):
     num = 1
     factor_list = []
-    if uinput > num:
-        factor_list.append(uinput)
-        uinput -= 1
-    else:
-        pass
+    for y in range(uinput):
+        if uinput > num:
+            factor_list.append(uinput)
+            uinput -= 1
+        else:
+            pass
     for i in factor_list:
         num *= i
-    print(f"Original: {factor_list[0]}. Factored: {num}")
+    return num #i cant be printing in a function
 
-print(factorial(number))
+print(f"Original: {number}. Factorial: {factorial(number)}")
