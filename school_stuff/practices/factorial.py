@@ -29,4 +29,4 @@ def factorial(uinput):
         num *= i
     return num #i cant be printing in a function
 
-print(f"Original: {number}. Factorial: {factorial(number)}")
+print(f"Original: {number}. Factorial: {factorial(number)}") #this wont print if number is over 1558 (exceeds integer limit)
