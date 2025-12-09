@@ -25,6 +25,10 @@ has_drums = False
 has_piccolo = False
 has_sunglasses = False
 
+gob_friend = False
+frog_friend = False
+dog_friend = False
+
 stat_1 = [int(random.randint(1, 6)), int(random.randint(1, 6)), int(random.randint(1, 6)), int(random.randint(1, 6))]
 stat_1.remove(min(stat_1))
 stat_1 = sum(stat_1)
@@ -122,7 +126,7 @@ while True:
             continue
     break
 
-def firepath(uclass, money, strength, constitution, inteligence, charisma, has_coolsword, has_redam, has_bomb, has_wararmor, has_warstick, has_bhstaff, has_blueam, has_book, has_schocloak, has_schostick, has_sax, has_greenam, has_drum, has_piccolo, has_sunglasses):
+def firepath(uclass, health, ac, money, strength, constitution, inteligence, charisma, has_coolsword, gobfriend, has_redam, has_bomb, has_wararmor, has_warstick, has_bhstaff, has_blueam, has_book, has_schocloak, has_schostick, has_sax, has_greenam, has_drum, has_piccolo, has_sunglasses):
     print(input("You chose the fire path.\nThe moment you enter, you feel the heat of the magma flowing down the cave walls radiating onto you.\nYou also see three chests. "))
     visitchest1 = False
     visitchest3 = False
@@ -151,5 +155,22 @@ def firepath(uclass, money, strength, constitution, inteligence, charisma, has_c
             continue
     
     print(input("You enter the next cavern and here a skuttering sound from above you. As you look up, you see a green creature leap down from the ceiling at you.\nAs you leap back to dodge, you can tell the the creature is a goblingo. "))
-    while True:
+    PInitiative = random.randint(1, 20)
+    EInitiative = random.randint(1, 20)
+    if PInitiative == EInitiative:
+        while True:
+            PInitiative += random.randint(1, 20)
+            EInitiative += random.randint(1, 20)
+            if PInitiative == EInitiative:
+                continue
+            else:
+                break
+    else:
         pass
+    ghealth = 40
+    if PInitiative > EInitiative:
+        if uclass == "warrior":
+            print("You start first.")
+            while True:
+                action = input("Would you like to Stab, Rage, or Befriend? ")
+                pass
