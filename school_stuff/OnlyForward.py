@@ -171,6 +171,36 @@ def firepath(uclass, health, ac, money, strength, constitution, inteligence, cha
     if PInitiative > EInitiative:
         if uclass == "warrior":
             print("You start first.")
+            atkboost = 0
             while True:
-                action = input("Would you like to Stab, Rage, or Befriend? ")
-                pass
+                action = input("Would you like to stab, rage, or befriend? ")
+                if action == "befriend":
+                    roll = random.randint(1, 20) + (charisma/2)
+                    if roll >= 18:
+                        gob_friend = True
+                        print(input("You have befriended the goblingo! You win the fight. "))
+                    else:
+                        print("You failed to befriend the goblingo. :( ")
+                elif action == "stab":
+                    roll = random.randint(1, 20) + 3
+                    if roll >= 14:
+                        if has_coolsword == True:
+                            if roll == 23:
+                                dmg_roll = (random.randint(5, 15) + 5 + atkboost + (strength / 2)) * 2
+                                ghealth -= dmg_roll
+                                print(f"CRIT!!! You did {dmg_roll} damage. Goblin has {ghealth} health left. ")
+                            else:
+                                dmg_roll = random.randint(5, 15) + 5 + atkboost + (strength / 2)
+                                ghealth -= dmg_roll
+                                print(f"You did {dmg_roll} damage. Goblin has {ghealth} health left. ")
+                        else:
+                            if roll == 23:
+                                dmg_roll = (random.randint(5, 15) + atkboost + (strength / 2)) * 2
+                                ghealth -= dmg_roll
+                                print(f"CRIT!!! You did {dmg_roll} damage. Goblin has {ghealth} health left. ")
+                            else:
+                                dmg_roll = random.randint(5, 15) + atkboost + (strength / 2)
+                                ghealth -= dmg_roll
+                                print(f"You did {dmg_roll} damage. Goblin has {ghealth} health left. ")
+                elif action == "rage":
+                    print("Yeah get angry. ;p   Your next attack will do 3 more damage.")
