@@ -179,6 +179,7 @@ def firepath(uclass, health, ac, money, strength, constitution, inteligence, cha
                     if roll >= 18:
                         gob_friend = True
                         print(input("You have befriended the goblingo! You win the fight. "))
+                        break
                     else:
                         print("You failed to befriend the goblingo. :( ")
                 elif action == "stab":
@@ -187,6 +188,18 @@ def firepath(uclass, health, ac, money, strength, constitution, inteligence, cha
                         if has_coolsword == True:
                             if roll == 23:
                                 dmg_roll = (random.randint(5, 15) + 5 + atkboost + (strength / 2)) * 2
+                                if has_redam == True:
+                                    dmg_roll += 5
+                                else:
+                                    pass
+                                if has_blueam == True:
+                                    dmg_roll += 5
+                                else:
+                                    pass
+                                if has_greenam == True:
+                                    dmg_roll += 5
+                                else:
+                                    pass
                                 ghealth -= dmg_roll
                                 print(f"CRIT!!! You did {dmg_roll} damage. Goblin has {ghealth} health left. ")
                             else:
@@ -202,5 +215,36 @@ def firepath(uclass, health, ac, money, strength, constitution, inteligence, cha
                                 dmg_roll = random.randint(5, 15) + atkboost + (strength / 2)
                                 ghealth -= dmg_roll
                                 print(f"You did {dmg_roll} damage. Goblin has {ghealth} health left. ")
+                        atkboost = 0
+                    else:
+                        print("You missed.")
                 elif action == "rage":
-                    print("Yeah get angry. ;p   Your next attack will do 3 more damage.")
+                    print("Yeah get angry. ;b   Your next attack will do 3 more damage.")
+                    atkboost += 3
+                else:
+                    print("invalid option")
+                    continue
+                if ghealth < 1:
+                    print(input("You win the fight. "))
+                    has_redam = True
+                    break
+                else:
+                    print(input("Goblins turn. "))
+                if random.randint(1, 20) >= ac:
+                    gobdmg = random.randint(5, 10)
+                    health -= gobdmg
+                    print(f"Goblingo did {gobdmg} damage. Current health: {health}. ")
+                else:
+                    print("Gob missed")
+                if health < 1:
+                    print(input("You lose. Press enter to restart fight."))
+                    health = 60
+                    ghealth = 40
+                    atkboost = 0
+                    continue
+                else:
+                    print(input("Your turn. "))
+    if gob_friend == True:
+        print(input("Now that you have befriended the Goblingo, it will help you fight the final boss. "))
+    else:
+        print(input("Now that you have defeated the goblin, you have picked up the Goblingos red amulet. "))
