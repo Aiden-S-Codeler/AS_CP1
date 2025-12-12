@@ -145,7 +145,7 @@ def firepath(uclass, health, ac, money, strength, constitution, inteligence, cha
                 break
             elif whatchest == "3":
                 if visitchest3 == False:
-                    has_coolsword = True
+                    money += 10
                     print(input("Congrats! You have picked up $10! "))
                     visitchest3 = True
                 else:
@@ -676,6 +676,89 @@ def firepath(uclass, health, ac, money, strength, constitution, inteligence, cha
     if gob_friend == True:
         print(input("Now that you have befriended the Goblingo, it will help you fight the final boss. "))
     else:
-        print(input("Now that you have defeated the goblin, you have picked up the Goblingos red amulet. You feel power flowing through you. "))
+        print(input("Now that you have defeated the goblingo, you have picked up the Goblingos red amulet. You feel power flowing through you. "))
     
     print(input("As you move on from the grueling fight, you notice a shop in the distance. "))
+    while True:
+        choice = input("What would you like to do: buy, rob, persuade, or leave. ")
+        if choice == "buy":
+            while True:
+                buy_choice = input("Would you like to but the bomb for $5, the armor for $5, or the stick for $10? ")
+                if buy_choice == "bomb":
+                    if money >= 5:
+                        has_bomb = True
+                        money -= 5
+                        print(f"You purchased the bomb. You have ${money} left.")
+                        break
+                    else:
+                        print("Sorry but your to poor.")
+                        break
+                elif buy_choice == "armor":
+                    if money >= 5:
+                        has_wararmor = True
+                        money -= 5
+                        ac += 4
+                        print(f"You purchased the armor. You have ${money} left.")
+                        break
+                    else:
+                        print("Sorry but your to poor.")
+                        break
+                elif buy_choice == "stick":
+                    if money >= 10:
+                        has_warstick = True
+                        money -= 10
+                        print(f"You purchased the Stick. You have ${money} left.")
+                        break
+                    else:
+                        print("Sorry but your to poor.")
+                        break
+                else:
+                    print("Thats not a valid option. Did you only type the namee fo the item?")
+                    break
+        elif choice == "rob":
+            robroll = random.randint(1, 20)
+            if robroll >= 16:
+                if has_wararmor == False:
+                    has_wararmor == True
+                    ac += 4
+                    print("You succesfuly run off with some shiny new armor.")
+                    break
+                elif has_warstick == False:
+                    has_warstick == True
+                    print("You run off with the really cool stick.")
+                    break
+                elif has_bomb == False:
+                    has_bomb == True
+                    print("You ran off with some explosives. Nice!!!")
+                    break
+                else:
+                    print("You already have everything, so you tried to take the shopkeeper himslef and failed.")
+                    break
+            else:
+                print("You dont manage to snatch anything.")
+                break
+        elif choice == "persuade":
+            giftroll = random.randint(1, 20) + (charisma / 2)
+            if giftroll >= 16:
+                if has_wararmor == False:
+                    has_wararmor == True
+                    ac += 4
+                    print("You were with some shiny new armor.")
+                elif has_warstick == False:
+                    has_warstick == True
+                    print("You were gifted with the really cool stick.")
+                elif has_bomb == False:
+                    has_bomb == True
+                    print("You were gifted some explosives. Nice!!!")
+                else:
+                    print("You already have everything.")
+            else:
+                print("You dont manage to get anything.")
+        elif choice == "leave":
+            print("You decide to leave the shop.")
+            break
+        else:
+            print("Invalid choice.")
+            continue
+
+firepath(uclass, health, ac, money, strength, constitution, inteligence, charisma, has_coolsword, gob_friend, has_redam, has_bomb, has_wararmor, has_warstick, has_bhstaff, has_blueam, has_book, has_schocloak, has_schostick, has_sax, has_greenam, has_drums, has_piccolo, has_sunglasses)
