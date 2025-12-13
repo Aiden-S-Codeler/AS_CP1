@@ -732,7 +732,7 @@ def firepath(uclass, health, ac, money, strength, constitution, inteligence, cha
                     print("You ran off with some explosives. Nice!!!")
                     break
                 else:
-                    print("You already have everything, so you tried to take the shopkeeper himslef and failed.")
+                    print("You already have everything, so you tried to take the shopkeeper himself and failed.")
                     break
             else:
                 print("You dont manage to snatch anything.")
@@ -1127,7 +1127,7 @@ def waterpath(uclass, health, ac, money, strength, constitution, inteligence, ch
                 else:
                     print("You dont have access to this attack yet.\nYou will unlock this in a shop at the end of the water path is you decide to go there and purchase it. ")
                     continue
-            elif action == "black hole":
+            elif action == "blackhole":
                 if has_bhstaff == True:
                     dmg_roll = random.randint(1, 100) + 5 + atkboost + (inteligence/ 2)
                     if has_redam == True:
@@ -1369,7 +1369,7 @@ def waterpath(uclass, health, ac, money, strength, constitution, inteligence, ch
                     print("You ran off with the book.")
                     break
                 else:
-                    print("You already have everything, so you tried to take the shopkeeper himslef and failed.")
+                    print("You already have everything, so you tried to take the shopkeeper himself and failed.")
                     break
             else:
                 print("You dont manage to snatch anything.")
