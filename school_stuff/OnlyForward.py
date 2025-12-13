@@ -1309,7 +1309,7 @@ def waterpath(uclass, health, ac, money, strength, constitution, inteligence, ch
                 continue
             else:
                 print(input("Your turn. "))
-    if gob_friend == True:
+    if frog_friend == True:
         print(input("Now that you have befriended the frog, it will help you fight the final boss. "))
     else:
         print(input("Now that you have defeated the frog, you have picked up the frog blue amulet. You feel power flowing through you. "))
