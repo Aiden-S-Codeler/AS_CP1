@@ -1334,7 +1334,7 @@ def waterpath(uclass, health, ac, money, strength, constitution, inteligence, ch
                     if money >= 5:
                         has_schocloak = True
                         money -= 5
-                        ac += 4
+                        inteligence += 4
                         print(f"You purchased the cloak. You have ${money} left.")
                         break
                     else:
@@ -1399,5 +1399,1264 @@ def waterpath(uclass, health, ac, money, strength, constitution, inteligence, ch
             continue
     return(uclass, health, ac, money, strength, constitution, inteligence, charisma, has_coolsword, frog_friend, has_redam, has_bomb, has_wararmor, has_warstick, has_bhstaff, has_blueam, has_book, has_schocloak, has_schostick, has_sax, has_greenam, has_drums, has_piccolo, has_sunglasses)
 
-firepath(uclass, health, ac, money, strength, constitution, inteligence, charisma, has_coolsword, gob_friend, has_redam, has_bomb, has_wararmor, has_warstick, has_bhstaff, has_blueam, has_book, has_schocloak, has_schostick, has_sax, has_greenam, has_drums, has_piccolo, has_sunglasses)
-waterpath(uclass, health, ac, money, strength, constitution, inteligence, charisma, has_coolsword, frog_friend, has_redam, has_bomb, has_wararmor, has_warstick, has_bhstaff, has_blueam, has_book, has_schocloak, has_schostick, has_sax, has_greenam, has_drums, has_piccolo, has_sunglasses)
+def townpath(uclass, health, ac, money, strength, constitution, inteligence, charisma, has_coolsword, dog_friend, has_redam, has_bomb, has_wararmor, has_warstick, has_bhstaff, has_blueam, has_book, has_schocloak, has_schostick, has_sax, has_greenam, has_drums, has_piccolo, has_sunglasses):
+    print(input("You chose the town path.\nThe moment you enter, you hear the sound of foot traffic.\nYou also see a chest in the middle of your pathway. "))
+    visitchest1 = False
+    visitchest3 = False
+    while True:
+        whatchest = input("What chest do you choose: 1, 1, or 1? ")
+        if whatchest == "1" or whatchest == "2":
+            if whatchest == "1":
+                if visitchest1 == False:
+                    has_sax = True
+                    money += 10
+                    print(input("Congrats! You have picked up the saxaphone and $10!\n You leave for the next area. "))
+                    visitchest1 = True
+                    break
+                else:
+                    print("You have already checked here.")
+            elif whatchest == "2":
+                print(input("Thinking that there must be another chest nearby, you walk around for 30 minutes before giving up and coming back to the chest."))
+                continue
+        else:
+            print("Invalid choice.")
+            continue
+    
+    print(input("You enter the next street and here a panting sound from the right. As you look, you see a grey creature walk out from the alley towards you.\nAs you look down, you can tell the the creature is a dog. "))
+    ghealth = 50
+    if uclass == "warrior":
+        print("You start first.")
+        atkboost = 0
+        while True:
+            action = input("Would you like to stab, rage, bomb, bludgeon, or befriend? ")
+            if action == "befriend":
+                roll = random.randint(1, 20) + (inteligence/2)
+                if roll >= 18:
+                    dog_friend = True
+                    print(input("You have befriended the dog! You win the fight. "))
+                    break
+                else:
+                    print("You failed to befriend the dog. :( ")
+            elif action == "stab":
+                roll = random.randint(1, 20) + 3
+                if roll >= 14:
+                    if has_coolsword == True:
+                        if roll == 23:
+                            dmg_roll = (random.randint(5, 15) + 5 + atkboost + (strength / 2)) * 2
+                            if has_redam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_blueam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_greenam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            ghealth -= dmg_roll
+                            print(f"CRIT!!! You did {dmg_roll} damage. Dog has {ghealth} health left. ")
+                        else:
+                            dmg_roll = random.randint(5, 15) + 5 + atkboost + (strength / 2)
+                            if has_redam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_blueam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_greenam == True:
+                                dmg_roll += 5
+                            ghealth -= dmg_roll
+                            print(f"You did {dmg_roll} damage. Dog has {ghealth} health left. ")
+                    else:
+                        if roll == 23:
+                            dmg_roll = (random.randint(5, 15) + atkboost + (strength / 2)) * 2
+                            if has_redam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_blueam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_greenam == True:
+                                dmg_roll += 5
+                            ghealth -= dmg_roll
+                            print(f"CRIT!!! You did {dmg_roll} damage. Dog has {ghealth} health left. ")
+                        else:
+                            dmg_roll = random.randint(5, 15) + atkboost + (strength / 2)
+                            if has_redam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_blueam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_greenam == True:
+                                dmg_roll += 5
+                            ghealth -= dmg_roll
+                            print(f"You did {dmg_roll} damage. Dog has {ghealth} health left. ")
+                    atkboost = 0
+                else:
+                    print("You missed.")
+            elif action == "rage":
+                print("Yeah get angry. ;b   Your next attack will do 3 more damage.")
+                atkboost += 3
+            elif action == "bomb":
+                if has_bomb == True:
+                    dmg_roll = random.randint(10, 20) + 5 + (strength / 2)
+                    if has_redam == True:
+                        dmg_roll += 5
+                    else:
+                        pass
+                    if has_blueam == True:
+                        dmg_roll += 5
+                    else:
+                        pass
+                    if has_greenam == True:
+                            dmg_roll += 5
+                    ghealth -= dmg_roll
+                    print(f"You did {dmg_roll} damage. Dog has {ghealth} health left. ")
+                else:
+                    print("You dont have access to this attack yet.\nYou will unlock this in a shop at the end of the fire path is you decide to got there and purchase it. ")
+                    continue
+            elif action == "bludgeon":
+                if has_warstick == True:
+                    dmg_roll = random.randint(1, 75) + 5 + atkboost + (strength / 2)
+                    if has_redam == True:
+                        dmg_roll += 5
+                    else:
+                        pass
+                    if has_blueam == True:
+                        dmg_roll += 5
+                    else:
+                        pass
+                    if has_greenam == True:
+                            dmg_roll += 5
+                    ghealth -= dmg_roll
+                    print(f"You did {dmg_roll} damage. Dog has {ghealth} health left. ")
+                else:
+                    print("You dont have access to this attack yet.\nYou will unlock this in a shop at the end of the fire path is you decide to got there and purchase it. ")
+                    continue
+            else:
+                print("invalid option")
+                continue
+            if ghealth < 1:
+                print(input("You win the fight. "))
+                has_redam = True
+                break
+            else:
+                print(input("Dog turn. "))
+            if random.randint(1, 20) >= ac:
+                gobdmg = random.randint(10, 15)
+                health -= gobdmg
+                print(f"Dog did {gobdmg} damage. Current health: {health}. ")
+            else:
+                print("Dog missed")
+            if health < 1:
+                print(input("You lose. Press enter to restart fight."))
+                health = 60
+                ghealth = 40
+                atkboost = 0
+                continue
+            else:
+                print(input("Your turn. "))
+    elif uclass == "scholar":
+        print("You start first.")
+        atkboost = 0
+        while True:
+            action = input("Would you like to use thunder, study, fireball, blackhole, or befriend? ")
+            if action == "befriend":
+                roll = random.randint(1, 20) + (inteligence/2)
+                if roll >= 18:
+                    dog_friend = True
+                    print(input("You have befriended the Dog! You win the fight. "))
+                    break
+                else:
+                    print("You failed to befriend the Dog. :( ")
+            elif action == "thunder":
+                roll = random.randint(1, 20) + 3
+                if roll >= 14:
+                    if has_schostick == True:
+                        if roll == 23:
+                            dmg_roll = random.randint(15, 30) + 5 + atkboost + (inteligence / 2)
+                            if has_redam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_blueam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_greenam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            ghealth -= dmg_roll
+                            print(f"CRIT!!! You did {dmg_roll} damage. Dog has {ghealth} health left. ")
+                            roll2 = random.randint(1, 20) + 3
+                            if roll2 == 23:
+                                dmg_roll = random.randint(15, 30) + 5 + atkboost + (inteligence / 2)
+                                if has_redam == True:
+                                    dmg_roll += 5
+                                else:
+                                    pass
+                                if has_blueam == True:
+                                    dmg_roll += 5
+                                else:
+                                    pass
+                                if has_greenam == True:
+                                    dmg_roll += 5
+                                else:
+                                    pass
+                                ghealth -= dmg_roll
+                                print(f"CRIT!!! You did {dmg_roll} damage. Dog has {ghealth} health left. ")
+                            else:
+                                dmg_roll = (random.randint(15, 30) + 5 + atkboost + (inteligence / 2)) / 2
+                                if has_redam == True:
+                                    dmg_roll += 5
+                                else:
+                                    pass
+                                if has_blueam == True:
+                                    dmg_roll += 5
+                                else:
+                                    pass
+                                if has_greenam == True:
+                                    dmg_roll += 5
+                                ghealth -= dmg_roll
+                                print(f"You did {dmg_roll} damage. Dog has {ghealth} health left. ")
+                        else:
+                            dmg_roll = (random.randint(15, 30) + 5 + atkboost + (inteligence / 2)) / 2
+                            if has_redam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_blueam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_greenam == True:
+                                dmg_roll += 5
+                            ghealth -= dmg_roll
+                            print(f"You did {dmg_roll} damage. Dog has {ghealth} health left. ")
+                            roll2 = random.randint(1, 20) + 3
+                            if roll2 == 23:
+                                dmg_roll = random.randint(15, 30) + 5 + atkboost + (inteligence / 2)
+                                if has_redam == True:
+                                    dmg_roll += 5
+                                else:
+                                    pass
+                                if has_blueam == True:
+                                    dmg_roll += 5
+                                else:
+                                    pass
+                                if has_greenam == True:
+                                    dmg_roll += 5
+                                else:
+                                    pass
+                                ghealth -= dmg_roll
+                                print(f"CRIT!!! You did {dmg_roll} damage. Dog has {ghealth} health left. ")
+                            else:
+                                dmg_roll = (random.randint(15, 30) + 5 + atkboost + (inteligence / 2)) / 2
+                                if has_redam == True:
+                                    dmg_roll += 5
+                                else:
+                                    pass
+                                if has_blueam == True:
+                                    dmg_roll += 5
+                                else:
+                                    pass
+                                if has_greenam == True:
+                                    dmg_roll += 5
+                                ghealth -= dmg_roll
+                                print(f"Cool stick triggered a second attack. You did {dmg_roll} damage. Dog has {ghealth} health left. ")
+                    else:
+                        if roll == 23:
+                            dmg_roll = (random.randint(15, 30) + atkboost + (inteligence / 2)) * 2
+                            if has_redam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_blueam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_greenam == True:
+                                dmg_roll += 5
+                            ghealth -= dmg_roll
+                            print(f"CRIT!!! You did {dmg_roll} damage. Dog has {ghealth} health left. ")
+                        else:
+                            dmg_roll = random.randint(15, 30) + atkboost + (inteligence / 2)
+                            if has_redam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_blueam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_greenam == True:
+                                dmg_roll += 5
+                            ghealth -= dmg_roll
+                            print(f"You did {dmg_roll} damage. Dog has {ghealth} health left. ")
+                    atkboost = 0
+                else:
+                    print("You missed.")
+            elif action == "study":
+                print("Yeah get smart. ;b   Your next attack will do 3 more damage.")
+                atkboost += 3
+            elif action == "fireball":
+                if has_book == True:
+                    if has_schostick == True:
+                        dmg_roll = (random.randint(10, 20) + 5 + (inteligence / 2)) * 2
+                        if has_redam == True:
+                            dmg_roll += 5
+                        else:
+                            pass
+                        if has_blueam == True:
+                            dmg_roll += 5
+                        else:
+                            pass
+                        if has_greenam == True:
+                            dmg_roll += 5
+                        else:
+                            pass
+                        ghealth -= dmg_roll
+                        print(f"You did {dmg_roll} damage. Dog has {ghealth} health left. ")
+                        dmg_roll = (random.randint(10, 20) + 5 + (inteligence / 2)) * 2
+                        if has_redam == True:
+                            dmg_roll += 5
+                        else:
+                            pass
+                        if has_blueam == True:
+                            dmg_roll += 5
+                        else:
+                            pass
+                        if has_greenam == True:
+                            dmg_roll += 5
+                        else:
+                            pass
+                        ghealth -= dmg_roll
+                        print(f"Cool stick triggered a second attack. You did {dmg_roll} damage. Dog has {ghealth} health left. ")
+                    else:
+                        dmg_roll = random.randint(20, 40) + 5 + (inteligence / 2)
+                        if has_redam == True:
+                            dmg_roll += 5
+                        else:
+                            pass
+                        if has_blueam == True:
+                            dmg_roll += 5
+                        else:
+                            pass
+                        if has_greenam == True:
+                                dmg_roll += 5
+                        ghealth -= dmg_roll
+                        print(f"You did {dmg_roll} damage. Dog has {ghealth} health left. ")
+                else:
+                    print("You dont have access to this attack yet.\nYou will unlock this in a shop at the end of the water path is you decide to go there and purchase it. ")
+                    continue
+            elif action == "blackhole":
+                if has_bhstaff == True:
+                    dmg_roll = random.randint(1, 100) + 5 + atkboost + (inteligence/ 2)
+                    if has_redam == True:
+                        dmg_roll += 5
+                    else:
+                        pass
+                    if has_blueam == True:
+                        dmg_roll += 5
+                    else:
+                        pass
+                    if has_greenam == True:
+                            dmg_roll += 5
+                    ghealth -= dmg_roll
+                    print(f"You did {dmg_roll} damage. Dog has {ghealth} health left. ")
+                else:
+                    print("You dont have access to this attack yet.\nYou will unlock this in a chest at the beginning of the water path is you decide to go there and pick it up. ")
+                    continue
+            else:
+                print("invalid option")
+                continue
+            if ghealth < 1:
+                print(input("You win the fight. "))
+                has_redam = True
+                break
+            else:
+                print(input("Dog turn. "))
+            if random.randint(1, 20) >= ac:
+                gobdmg = random.randint(5, 10)
+                health -= gobdmg
+                print(f"Dog did {gobdmg} damage. Current health: {health}. ")
+            else:
+                print("Dog missed")
+            if health < 1:
+                print(input("You lose. Press enter to restart fight."))
+                health = 40
+                ghealth = 40
+                atkboost = 0
+                continue
+            else:
+                print(input("Your turn. "))
+    if uclass == "bard":
+        print("You start first.")
+        atkboost = 0
+        while True:
+            action = input("Would you like to song, powersong, screech, boom, or befriend? ")
+            if action == "befriend":
+                roll = random.randint(1, 20) + (inteligence/2)
+                if roll >= 18:
+                    frog_friend = True
+                    print(input("You have befriended the Dog! You win the fight. "))
+                    break
+                else:
+                    print("You failed to befriend the Dog. :( ")
+            elif action == "song":
+                roll = random.randint(1, 20) + 3
+                if roll >= 14:
+                    if has_sax == True:
+                        if roll == 23:
+                            dmg_roll = (random.randint(10, 20) + 5 + atkboost + (charisma / 2)) * 2
+                            if has_redam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_blueam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_greenam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            ghealth -= dmg_roll
+                            print(f"CRIT!!! You did {dmg_roll} damage. Dog has {ghealth} health left. ")
+                        else:
+                            dmg_roll = random.randint(10, 20) + 5 + atkboost + (charisma / 2)
+                            if has_redam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_blueam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_greenam == True:
+                                dmg_roll += 5
+                            ghealth -= dmg_roll
+                            print(f"You did {dmg_roll} damage. Dog has {ghealth} health left. ")
+                    else:
+                        if roll == 23:
+                            dmg_roll = (random.randint(10, 20) + atkboost + (charisma / 2)) * 2
+                            if has_redam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_blueam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_greenam == True:
+                                dmg_roll += 5
+                            ghealth -= dmg_roll
+                            print(f"CRIT!!! You did {dmg_roll} damage. Dog has {ghealth} health left. ")
+                        else:
+                            dmg_roll = random.randint(10, 20) + atkboost + (charisma / 2)
+                            if has_redam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_blueam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_greenam == True:
+                                dmg_roll += 5
+                            ghealth -= dmg_roll
+                            print(f"You did {dmg_roll} damage. Dog has {ghealth} health left. ")
+                    atkboost = 0
+                else:
+                    print("You missed.")
+            elif action == "powersong":
+                print("Yeah get groovy. ;b   Your next attack will do 3 more damage.")
+                atkboost += 3
+            elif action == "screech":
+                if has_piccolo == True:
+                    dmg_roll = random.randint(1, 75) + 5 + (charisma / 2)
+                    if has_redam == True:
+                        dmg_roll += 5
+                    else:
+                        pass
+                    if has_blueam == True:
+                        dmg_roll += 5
+                    else:
+                        pass
+                    if has_greenam == True:
+                            dmg_roll += 5
+                    ghealth -= dmg_roll
+                    print(f"You did {dmg_roll} damage. Dog has {ghealth} health left. ")
+                else:
+                    print("You dont have access to this attack yet.\nYou will unlock this in a shop at the end of the town path is you decide to got there and purchase it. ")
+                    continue
+            elif action == "boom":
+                if has_drums == True:
+                    dmg_roll = random.randint(10, 20) + 5 + atkboost + (charisma / 2)
+                    if has_redam == True:
+                        dmg_roll += 5
+                    else:
+                        pass
+                    if has_blueam == True:
+                        dmg_roll += 5
+                    else:
+                        pass
+                    if has_greenam == True:
+                            dmg_roll += 5
+                    ghealth -= dmg_roll
+                    print(f"You did {dmg_roll} damage. Dog has {ghealth} health left. ")
+                else:
+                    print("You dont have access to this attack yet.\nYou will unlock this in a shop at the end of the town path is you decide to got there and purchase it. ")
+                    continue
+            else:
+                print("invalid option")
+                continue
+            if ghealth < 1:
+                print(input("You win the fight. "))
+                has_redam = True
+                break
+            else:
+                print(input("Dog turn. "))
+            if random.randint(1, 20) >= ac:
+                gobdmg = random.randint(5, 10)
+                health -= gobdmg
+                print(f"Dog did {gobdmg} damage. Current health: {health}. ")
+            else:
+                print("Dog missed")
+            if health < 1:
+                print(input("You lose. Press enter to restart fight."))
+                health = 50
+                ghealth = 40
+                atkboost = 0
+                continue
+            else:
+                print(input("Your turn. "))
+    if dog_friend == True:
+        print(input("Now that you have befriended the Dog, it will help you fight the final boss. "))
+    else:
+        print(input("Now that you have defeated the Dog, you have picked up the Dogs green amulet. You feel power flowing through you, along with the guilt of murdering a puppy.\nYou have the aura of a dog murderer on you, so everyone likes you less now. "))
+        has_greenam = True
+        charisma -= 5
+    
+    print(input("As you move on from that experience, you notice a shop in the distance. "))
+    while True:
+        choice = input("What would you like to do: buy, rob, persuade, or leave. ")
+        if choice == "buy":
+            while True:
+                buy_choice = input("Would you like to but the drums for $5, the sunglasses for $5, or the piccolo for $10? ")
+                if buy_choice == "drums":
+                    if money >= 5:
+                        has_drums = True
+                        money -= 5
+                        print(f"You purchased the drums. You have ${money} left.")
+                        break
+                    else:
+                        print("Sorry but your to poor.")
+                        break
+                elif buy_choice == "sunglasses":
+                    if money >= 5:
+                        has_sunglasses = True
+                        money -= 5
+                        charisma += 4
+                        print(f"You purchased the sunglasses. You have ${money} left.")
+                        break
+                    else:
+                        print("Sorry but your to poor.")
+                        break
+                elif buy_choice == "piccolo":
+                    if money >= 10:
+                        has_piccolo = True
+                        money -= 10
+                        print(f"You purchased the piccolo. You have ${money} left.")
+                        break
+                    else:
+                        print("Sorry but your to poor.")
+                        break
+                else:
+                    print("Thats not a valid option. Did you only type the name fo the item?")
+                    break
+        elif choice == "rob":
+            robroll = random.randint(1, 20)
+            if robroll >= 16:
+                if has_sunglasses == False:
+                    has_sunglasses == True
+                    charisma += 4
+                    print("You succesfuly run off with the sunglasses.")
+                    break
+                elif has_piccolo == False:
+                    has_piccolo == True
+                    print("You run off with the really piccolo.")
+                    break
+                elif has_drums == False:
+                    has_drums == True
+                    print("You ran off with the drums.")
+                    break
+                else:
+                    print("You already have everything, so you tried to take the shopkeeper himself and failed.")
+                    break
+            else:
+                print("You dont manage to snatch anything.")
+                break
+        elif choice == "persuade":
+            giftroll = random.randint(1, 20) + (charisma / 2)
+            if giftroll >= 16:
+                if has_sunglasses == False:
+                    has_sunglasses = True
+                    charisma += 4
+                    print("You were gifted with the sunglasses.")
+                elif has_piccolo == False:
+                    has_piccolo = True
+                    print("You were gifted with the piccolo.")
+                elif has_drums == False:
+                    has_drums = True
+                    print("You were gifted the drums.")
+                else:
+                    print("You already have everything.")
+            else:
+                print("You dont manage to get anything.")
+        elif choice == "leave":
+            print("You decide to leave the shop.")
+            break
+        else:
+            print("Invalid choice.")
+            continue
+    return(uclass, health, ac, money, strength, constitution, inteligence, charisma, has_coolsword, dog_friend, has_redam, has_bomb, has_wararmor, has_warstick, has_bhstaff, has_blueam, has_book, has_schocloak, has_schostick, has_sax, has_greenam, has_drums, has_piccolo, has_sunglasses)
+
+visitfire = False
+visitwater = False
+visittown = False
+
+while True:
+    while True:
+        choose_path = input("What path would you like to take: fire, water, or town?")
+        if choose_path == "fire":
+            uclass, health, ac, money, strength, constitution, inteligence, charisma, has_coolsword, gob_friend, has_redam, has_bomb, has_wararmor, has_warstick, has_bhstaff, has_blueam, has_book, has_schocloak, has_schostick, has_sax, has_greenam, has_drums, has_piccolo, has_sunglasses = firepath(uclass, health, ac, money, strength, constitution, inteligence, charisma, has_coolsword, gob_friend, has_redam, has_bomb, has_wararmor, has_warstick, has_bhstaff, has_blueam, has_book, has_schocloak, has_schostick, has_sax, has_greenam, has_drums, has_piccolo, has_sunglasses)
+            visitfire = True
+            break
+        elif choose_path == "water":
+            uclass, health, ac, money, strength, constitution, inteligence, charisma, has_coolsword, frog_friend, has_redam, has_bomb, has_wararmor, has_warstick, has_bhstaff, has_blueam, has_book, has_schocloak, has_schostick, has_sax, has_greenam, has_drums, has_piccolo, has_sunglasses = waterpath(uclass, health, ac, money, strength, constitution, inteligence, charisma, has_coolsword, frog_friend, has_redam, has_bomb, has_wararmor, has_warstick, has_bhstaff, has_blueam, has_book, has_schocloak, has_schostick, has_sax, has_greenam, has_drums, has_piccolo, has_sunglasses)
+            visitwater = True
+            break
+        elif choose_path == "town":
+            uclass, health, ac, money, strength, constitution, inteligence, charisma, has_coolsword, dog_friend, has_redam, has_bomb, has_wararmor, has_warstick, has_bhstaff, has_blueam, has_book, has_schocloak, has_schostick, has_sax, has_greenam, has_drums, has_piccolo, has_sunglasses = townpath(uclass, health, ac, money, strength, constitution, inteligence, charisma, has_coolsword, dog_friend, has_redam, has_bomb, has_wararmor, has_warstick, has_bhstaff, has_blueam, has_book, has_schocloak, has_schostick, has_sax, has_greenam, has_drums, has_piccolo, has_sunglasses)
+            visittown = True
+            break
+        else:
+            print("Invalid choice.")
+            continue
+    while True:
+        choose_path = input("Now that you have made it through that path, would you like to take: fire path, water path, town path, ot move onto the boss?")
+        if choose_path == "fire":
+            if visitfire == False:
+                uclass, health, ac, money, strength, constitution, inteligence, charisma, has_coolsword, gob_friend, has_redam, has_bomb, has_wararmor, has_warstick, has_bhstaff, has_blueam, has_book, has_schocloak, has_schostick, has_sax, has_greenam, has_drums, has_piccolo, has_sunglasses = firepath(uclass, health, ac, money, strength, constitution, inteligence, charisma, has_coolsword, gob_friend, has_redam, has_bomb, has_wararmor, has_warstick, has_bhstaff, has_blueam, has_book, has_schocloak, has_schostick, has_sax, has_greenam, has_drums, has_piccolo, has_sunglasses)
+                visitfire = True
+                continue
+            else:
+                print("You already did this path.")
+        elif choose_path == "water":
+            if visitwater == False:
+                uclass, health, ac, money, strength, constitution, inteligence, charisma, has_coolsword, frog_friend, has_redam, has_bomb, has_wararmor, has_warstick, has_bhstaff, has_blueam, has_book, has_schocloak, has_schostick, has_sax, has_greenam, has_drums, has_piccolo, has_sunglasses = waterpath(uclass, health, ac, money, strength, constitution, inteligence, charisma, has_coolsword, frog_friend, has_redam, has_bomb, has_wararmor, has_warstick, has_bhstaff, has_blueam, has_book, has_schocloak, has_schostick, has_sax, has_greenam, has_drums, has_piccolo, has_sunglasses)
+                visitwater = True
+                continue
+            else:
+                print("You already did this path.")
+        elif choose_path == "town":
+            if visittown == False:
+                uclass, health, ac, money, strength, constitution, inteligence, charisma, has_coolsword, dog_friend, has_redam, has_bomb, has_wararmor, has_warstick, has_bhstaff, has_blueam, has_book, has_schocloak, has_schostick, has_sax, has_greenam, has_drums, has_piccolo, has_sunglasses = townpath(uclass, health, ac, money, strength, constitution, inteligence, charisma, has_coolsword, dog_friend, has_redam, has_bomb, has_wararmor, has_warstick, has_bhstaff, has_blueam, has_book, has_schocloak, has_schostick, has_sax, has_greenam, has_drums, has_piccolo, has_sunglasses)
+                visittown = True
+                continue
+            else:
+                print("You already did this path.")
+        elif choose_path == "boss":
+            ghealth = 150
+            if uclass == "warrior":
+                print("You start first.")
+                atkboost = 0
+                while True:
+                    action = input("Would you like to stab, rage, bomb, or bludgeon? ")
+                    if action == "stab":
+                        roll = random.randint(1, 20) + 3
+                        if roll >= 14:
+                            if has_coolsword == True:
+                                if roll == 23:
+                                    dmg_roll = (random.randint(5, 15) + 5 + atkboost + (strength / 2)) * 2
+                                    if has_redam == True:
+                                        dmg_roll += 5
+                                    else:
+                                        pass
+                                    if has_blueam == True:
+                                        dmg_roll += 5
+                                    else:
+                                        pass
+                                    if has_greenam == True:
+                                        dmg_roll += 5
+                                    else:
+                                        pass
+                                    ghealth -= dmg_roll
+                                    print(f"CRIT!!! You did {dmg_roll} damage. Belphagor has {ghealth} health left. ")
+                                else:
+                                    dmg_roll = random.randint(5, 15) + 5 + atkboost + (strength / 2)
+                                    if has_redam == True:
+                                        dmg_roll += 5
+                                    else:
+                                        pass
+                                    if has_blueam == True:
+                                        dmg_roll += 5
+                                    else:
+                                        pass
+                                    if has_greenam == True:
+                                        dmg_roll += 5
+                                    ghealth -= dmg_roll
+                                    print(f"You did {dmg_roll} damage. Belphagor has {ghealth} health left. ")
+                            else:
+                                if roll == 23:
+                                    dmg_roll = (random.randint(5, 15) + atkboost + (strength / 2)) * 2
+                                    if has_redam == True:
+                                        dmg_roll += 5
+                                    else:
+                                        pass
+                                    if has_blueam == True:
+                                        dmg_roll += 5
+                                    else:
+                                        pass
+                                    if has_greenam == True:
+                                        dmg_roll += 5
+                                    ghealth -= dmg_roll
+                                    print(f"CRIT!!! You did {dmg_roll} damage. Belphagor has {ghealth} health left. ")
+                                else:
+                                    dmg_roll = random.randint(5, 15) + atkboost + (strength / 2)
+                                    if has_redam == True:
+                                        dmg_roll += 5
+                                    else:
+                                        pass
+                                    if has_blueam == True:
+                                        dmg_roll += 5
+                                    else:
+                                        pass
+                                    if has_greenam == True:
+                                        dmg_roll += 5
+                                    ghealth -= dmg_roll
+                                    print(f"You did {dmg_roll} damage. Belphagor has {ghealth} health left. ")
+                            atkboost = 0
+                        else:
+                            print("You missed.")
+                    elif action == "rage":
+                        print("Yeah get angry. ;b   Your next attack will do 3 more damage.")
+                        atkboost += 3
+                    elif action == "bomb":
+                        if has_bomb == True:
+                            dmg_roll = random.randint(10, 20) + 5 + (strength / 2)
+                            if has_redam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_blueam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_greenam == True:
+                                    dmg_roll += 5
+                            ghealth -= dmg_roll
+                            print(f"You did {dmg_roll} damage. Belphagor has {ghealth} health left. ")
+                        else:
+                            print("You dont have access to this attack yet.\nYou will unlock this in a shop at the end of the fire path is you decide to got there and purchase it. ")
+                            continue
+                    elif action == "bludgeon":
+                        if has_warstick == True:
+                            dmg_roll = random.randint(1, 75) + 5 + atkboost + (strength / 2)
+                            if has_redam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_blueam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_greenam == True:
+                                    dmg_roll += 5
+                            ghealth -= dmg_roll
+                            print(f"You did {dmg_roll} damage. Belphagor has {ghealth} health left. ")
+                        else:
+                            print("You dont have access to this attack yet.\nYou will unlock this in a shop at the end of the fire path is you decide to got there and purchase it. ")
+                            continue
+                    else:
+                        print("invalid option")
+                        continue
+                    if gob_friend == True:
+                        ghealth -= 10
+                        print(f"Goblingo did 10 damage to Belphagor. Remaining health: {ghealth}")
+                    else:
+                        pass
+                    if frog_friend == True:
+                        ghealth -= 10
+                        print(f"Frog did 10 damage to Belphagor. Remaining health: {ghealth}")
+                    else:
+                        pass
+                    if dog_friend == True:
+                        ghealth -= 10
+                        print(f"Dog did 10 damage to Belphagor. Remaining health: {ghealth}")
+                    else:
+                        pass
+                    if ghealth < 1:
+                        print(input("You win the fight. "))
+                    else:
+                        print(input("Belphagor's turn. "))
+                    bossatk = random.randint(1, 3)
+                    if bossatk == 1:
+                        bossbeam = random.randint(20, 30)
+                        if has_redam == True and has_blueam == True and has_greenam == True:
+                            bossbeam = bossbeam / 2
+                            health -= bossbeam - (constitution / 2)
+                            print(input(f"Due to the combined power of the 3 amulets, the beam from Belphagor did half the damage. You took {bossbeam} damage. You have {health} left. "))
+                        else:
+                            health -= bossbeam - (constitution / 2)
+                            print(input(f"Belphagor used a beam attack. You took {bossbeam} damage. You have {health} left. "))
+                    elif bossatk == 2:
+                        bossbeam = random.randint(10, 40)
+                        if has_redam == True and has_blueam == True and has_greenam == True:
+                            bossbeam = bossbeam / 2
+                            health -= bossbeam - (constitution / 2)
+                            print(input(f"Due to the combined power of the 3 amulets, the punch from Belphagor did half the damage. You took {bossbeam} damage. You have {health} left. "))
+                        else:
+                            health -= bossbeam - (constitution / 2)
+                            print(input(f"Belphagor used a punch attack. You took {bossbeam} damage. You have {health} left. "))
+                    else:
+                        bossbeam = random.randint(1, 20)
+                        if has_redam == True and has_blueam == True and has_greenam == True:
+                            bossbeam = bossbeam / 2
+                            ghealth += bossbeam
+                            print(input(f"Due to the combined power of the 3 amulets, Belphagor only healed half of what he would do normally. Belpahgor has {ghealth} health. "))
+                        else:
+                            ghealth += bossbeam
+                            print(input(f"Belphagor healed {bossbeam}. Belpahgor has {ghealth} health. "))
+                    if health < 1:
+                        print(input("You lose. Press enter to restart fight."))
+                        health = 60
+                        ghealth = 40
+                        atkboost = 0
+                        continue
+                    else:
+                        print(input("Your turn. "))
+            elif uclass == "scholar":
+                print("You start first.")
+                atkboost = 0
+                while True:
+                    action = input("Would you like to use thunder, study, fireball, blackhole, or befriend? ")
+                    if action == "thunder":
+                        roll = random.randint(1, 20) + 3
+                        if roll >= 14:
+                            if has_schostick == True:
+                                if roll == 23:
+                                    dmg_roll = random.randint(15, 30) + 5 + atkboost + (inteligence / 2)
+                                    if has_redam == True:
+                                        dmg_roll += 5
+                                    else:
+                                        pass
+                                    if has_blueam == True:
+                                        dmg_roll += 5
+                                    else:
+                                        pass
+                                    if has_greenam == True:
+                                        dmg_roll += 5
+                                    else:
+                                        pass
+                                    ghealth -= dmg_roll
+                                    print(f"CRIT!!! You did {dmg_roll} damage. Belphagor has {ghealth} health left. ")
+                                    roll2 = random.randint(1, 20) + 3
+                                    if roll2 == 23:
+                                        dmg_roll = random.randint(15, 30) + 5 + atkboost + (inteligence / 2)
+                                        if has_redam == True:
+                                            dmg_roll += 5
+                                        else:
+                                            pass
+                                        if has_blueam == True:
+                                            dmg_roll += 5
+                                        else:
+                                            pass
+                                        if has_greenam == True:
+                                            dmg_roll += 5
+                                        else:
+                                            pass
+                                        ghealth -= dmg_roll
+                                        print(f"CRIT!!! You did {dmg_roll} damage. Belphagor has {ghealth} health left. ")
+                                    else:
+                                        dmg_roll = (random.randint(15, 30) + 5 + atkboost + (inteligence / 2)) / 2
+                                        if has_redam == True:
+                                            dmg_roll += 5
+                                        else:
+                                            pass
+                                        if has_blueam == True:
+                                            dmg_roll += 5
+                                        else:
+                                            pass
+                                        if has_greenam == True:
+                                            dmg_roll += 5
+                                        ghealth -= dmg_roll
+                                        print(f"You did {dmg_roll} damage. Belphagor has {ghealth} health left. ")
+                                else:
+                                    dmg_roll = (random.randint(15, 30) + 5 + atkboost + (inteligence / 2)) / 2
+                                    if has_redam == True:
+                                        dmg_roll += 5
+                                    else:
+                                        pass
+                                    if has_blueam == True:
+                                        dmg_roll += 5
+                                    else:
+                                        pass
+                                    if has_greenam == True:
+                                        dmg_roll += 5
+                                    ghealth -= dmg_roll
+                                    print(f"You did {dmg_roll} damage. Belphagor has {ghealth} health left. ")
+                                    roll2 = random.randint(1, 20) + 3
+                                    if roll2 == 23:
+                                        dmg_roll = random.randint(15, 30) + 5 + atkboost + (inteligence / 2)
+                                        if has_redam == True:
+                                            dmg_roll += 5
+                                        else:
+                                            pass
+                                        if has_blueam == True:
+                                            dmg_roll += 5
+                                        else:
+                                            pass
+                                        if has_greenam == True:
+                                            dmg_roll += 5
+                                        else:
+                                            pass
+                                        ghealth -= dmg_roll
+                                        print(f"CRIT!!! You did {dmg_roll} damage. Belphagor has {ghealth} health left. ")
+                                    else:
+                                        dmg_roll = (random.randint(15, 30) + 5 + atkboost + (inteligence / 2)) / 2
+                                        if has_redam == True:
+                                            dmg_roll += 5
+                                        else:
+                                            pass
+                                        if has_blueam == True:
+                                            dmg_roll += 5
+                                        else:
+                                            pass
+                                        if has_greenam == True:
+                                            dmg_roll += 5
+                                        ghealth -= dmg_roll
+                                        print(f"Cool stick triggered a second attack. You did {dmg_roll} damage. Belphagor has {ghealth} health left. ")
+                            else:
+                                if roll == 23:
+                                    dmg_roll = (random.randint(15, 30) + atkboost + (inteligence / 2)) * 2
+                                    if has_redam == True:
+                                        dmg_roll += 5
+                                    else:
+                                        pass
+                                    if has_blueam == True:
+                                        dmg_roll += 5
+                                    else:
+                                        pass
+                                    if has_greenam == True:
+                                        dmg_roll += 5
+                                    ghealth -= dmg_roll
+                                    print(f"CRIT!!! You did {dmg_roll} damage. Belphagor has {ghealth} health left. ")
+                                else:
+                                    dmg_roll = random.randint(15, 30) + atkboost + (inteligence / 2)
+                                    if has_redam == True:
+                                        dmg_roll += 5
+                                    else:
+                                        pass
+                                    if has_blueam == True:
+                                        dmg_roll += 5
+                                    else:
+                                        pass
+                                    if has_greenam == True:
+                                        dmg_roll += 5
+                                    ghealth -= dmg_roll
+                                    print(f"You did {dmg_roll} damage. Belphagor has {ghealth} health left. ")
+                            atkboost = 0
+                        else:
+                            print("You missed.")
+                    elif action == "study":
+                        print("Yeah get smart. ;b   Your next attack will do 3 more damage.")
+                        atkboost += 3
+                    elif action == "fireball":
+                        if has_book == True:
+                            if has_schostick == True:
+                                dmg_roll = (random.randint(10, 20) + 5 + (inteligence / 2)) * 2
+                                if has_redam == True:
+                                    dmg_roll += 5
+                                else:
+                                    pass
+                                if has_blueam == True:
+                                    dmg_roll += 5
+                                else:
+                                    pass
+                                if has_greenam == True:
+                                    dmg_roll += 5
+                                else:
+                                    pass
+                                ghealth -= dmg_roll
+                                print(f"You did {dmg_roll} damage. Belphagor has {ghealth} health left. ")
+                                dmg_roll = (random.randint(10, 20) + 5 + (inteligence / 2)) * 2
+                                if has_redam == True:
+                                    dmg_roll += 5
+                                else:
+                                    pass
+                                if has_blueam == True:
+                                    dmg_roll += 5
+                                else:
+                                    pass
+                                if has_greenam == True:
+                                    dmg_roll += 5
+                                else:
+                                    pass
+                                ghealth -= dmg_roll
+                                print(f"Cool stick triggered a second attack. You did {dmg_roll} damage. Belphagor has {ghealth} health left. ")
+                            else:
+                                dmg_roll = random.randint(20, 40) + 5 + (inteligence / 2)
+                                if has_redam == True:
+                                    dmg_roll += 5
+                                else:
+                                    pass
+                                if has_blueam == True:
+                                    dmg_roll += 5
+                                else:
+                                    pass
+                                if has_greenam == True:
+                                        dmg_roll += 5
+                                ghealth -= dmg_roll
+                                print(f"You did {dmg_roll} damage. Belphagor has {ghealth} health left. ")
+                        else:
+                            print("You dont have access to this attack yet.\nYou will unlock this in a shop at the end of the water path is you decide to go there and purchase it. ")
+                            continue
+                    elif action == "blackhole":
+                        if has_bhstaff == True:
+                            dmg_roll = random.randint(1, 100) + 5 + atkboost + (inteligence/ 2)
+                            if has_redam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_blueam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_greenam == True:
+                                    dmg_roll += 5
+                            ghealth -= dmg_roll
+                            print(f"You did {dmg_roll} damage. Belphagor has {ghealth} health left. ")
+                        else:
+                            print("You dont have access to this attack yet.\nYou will unlock this in a chest at the beginning of the water path is you decide to go there and pick it up. ")
+                            continue
+                    else:
+                        print("invalid option")
+                        continue
+                    if ghealth < 1:
+                        print(input("You win the fight. "))
+                        has_redam = True
+                        break
+                    else:
+                        print(input("Belphagor's turn. "))
+                    bossatk = random.randint(1, 3)
+                    if bossatk == 1:
+                        bossbeam = random.randint(20, 30)
+                        if has_redam == True and has_blueam == True and has_greenam == True:
+                            bossbeam = bossbeam / 2
+                            health -= bossbeam - (constitution / 2)
+                            print(input(f"Due to the combined power of the 3 amulets, the beam from Belphagor did half the damage. You took {bossbeam} damage. You have {health} left. "))
+                        else:
+                            health -= bossbeam - (constitution / 2)
+                            print(input(f"Belphagor used a beam attack. You took {bossbeam} damage. You have {health} left. "))
+                    elif bossatk == 2:
+                        bossbeam = random.randint(10, 40)
+                        if has_redam == True and has_blueam == True and has_greenam == True:
+                            bossbeam = bossbeam / 2
+                            health -= bossbeam - (constitution / 2)
+                            print(input(f"Due to the combined power of the 3 amulets, the punch from Belphagor did half the damage. You took {bossbeam} damage. You have {health} left. "))
+                        else:
+                            health -= bossbeam - (constitution / 2)
+                            print(input(f"Belphagor used a punch attack. You took {bossbeam} damage. You have {health} left. "))
+                    else:
+                        bossbeam = random.randint(1, 20)
+                        if has_redam == True and has_blueam == True and has_greenam == True:
+                            bossbeam = bossbeam / 2
+                            ghealth += bossbeam
+                            print(input(f"Due to the combined power of the 3 amulets, Belphagor only healed half of what he would do normally. Belpahgor has {ghealth} health. "))
+                        else:
+                            ghealth += bossbeam
+                            print(input(f"Belphagor healed {bossbeam}. Belpahgor has {ghealth} health. "))
+                    if health < 1:
+                        print(input("You lose. Press enter to restart fight."))
+                        health = 40
+                        ghealth = 40
+                        atkboost = 0
+                        continue
+                    else:
+                        print(input("Your turn. "))
+            if uclass == "bard":
+                print("You start first.")
+                atkboost = 0
+                while True:
+                    action = input("Would you like to song, powersong, screech, boom, or befriend? ")
+                    if action == "song":
+                        roll = random.randint(1, 20) + 3
+                        if roll >= 14:
+                            if has_sax == True:
+                                if roll == 23:
+                                    dmg_roll = (random.randint(10, 20) + 5 + atkboost + (charisma / 2)) * 2
+                                    if has_redam == True:
+                                        dmg_roll += 5
+                                    else:
+                                        pass
+                                    if has_blueam == True:
+                                        dmg_roll += 5
+                                    else:
+                                        pass
+                                    if has_greenam == True:
+                                        dmg_roll += 5
+                                    else:
+                                        pass
+                                    ghealth -= dmg_roll
+                                    print(f"CRIT!!! You did {dmg_roll} damage. Belphagor has {ghealth} health left. ")
+                                else:
+                                    dmg_roll = random.randint(10, 20) + 5 + atkboost + (charisma / 2)
+                                    if has_redam == True:
+                                        dmg_roll += 5
+                                    else:
+                                        pass
+                                    if has_blueam == True:
+                                        dmg_roll += 5
+                                    else:
+                                        pass
+                                    if has_greenam == True:
+                                        dmg_roll += 5
+                                    ghealth -= dmg_roll
+                                    print(f"You did {dmg_roll} damage. Belphagor has {ghealth} health left. ")
+                            else:
+                                if roll == 23:
+                                    dmg_roll = (random.randint(10, 20) + atkboost + (charisma / 2)) * 2
+                                    if has_redam == True:
+                                        dmg_roll += 5
+                                    else:
+                                        pass
+                                    if has_blueam == True:
+                                        dmg_roll += 5
+                                    else:
+                                        pass
+                                    if has_greenam == True:
+                                        dmg_roll += 5
+                                    ghealth -= dmg_roll
+                                    print(f"CRIT!!! You did {dmg_roll} damage. Belphagor has {ghealth} health left. ")
+                                else:
+                                    dmg_roll = random.randint(10, 20) + atkboost + (charisma / 2)
+                                    if has_redam == True:
+                                        dmg_roll += 5
+                                    else:
+                                        pass
+                                    if has_blueam == True:
+                                        dmg_roll += 5
+                                    else:
+                                        pass
+                                    if has_greenam == True:
+                                        dmg_roll += 5
+                                    ghealth -= dmg_roll
+                                    print(f"You did {dmg_roll} damage. Belphagor has {ghealth} health left. ")
+                            atkboost = 0
+                        else:
+                            print("You missed.")
+                    elif action == "powersong":
+                        print("Yeah get groovy. ;b   Your next attack will do 3 more damage.")
+                        atkboost += 3
+                    elif action == "screech":
+                        if has_piccolo == True:
+                            dmg_roll = random.randint(1, 75) + 5 + (charisma / 2)
+                            if has_redam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_blueam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_greenam == True:
+                                    dmg_roll += 5
+                            ghealth -= dmg_roll
+                            print(f"You did {dmg_roll} damage. Belphagor has {ghealth} health left. ")
+                        else:
+                            print("You dont have access to this attack yet.\nYou will unlock this in a shop at the end of the town path is you decide to got there and purchase it. ")
+                            continue
+                    elif action == "boom":
+                        if has_drums == True:
+                            dmg_roll = random.randint(10, 20) + 5 + atkboost + (charisma / 2)
+                            if has_redam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_blueam == True:
+                                dmg_roll += 5
+                            else:
+                                pass
+                            if has_greenam == True:
+                                    dmg_roll += 5
+                            ghealth -= dmg_roll
+                            print(f"You did {dmg_roll} damage. Belphagor has {ghealth} health left. ")
+                        else:
+                            print("You dont have access to this attack yet.\nYou will unlock this in a shop at the end of the town path is you decide to got there and purchase it. ")
+                            continue
+                    else:
+                        print("invalid option")
+                        continue
+                    if ghealth < 1:
+                        print(input("You win the fight. "))
+                        has_redam = True
+                        break
+                    else:
+                        print(input("Belphagor's turn. "))
+                    bossatk = random.randint(1, 3)
+                    if bossatk == 1:
+                        bossbeam = random.randint(20, 30)
+                        if has_redam == True and has_blueam == True and has_greenam == True:
+                            bossbeam = bossbeam / 2
+                            health -= bossbeam - (constitution / 2)
+                            print(input(f"Due to the combined power of the 3 amulets, the beam from Belphagor did half the damage. You took {bossbeam} damage. You have {health} left. "))
+                        else:
+                            health -= bossbeam - (constitution / 2)
+                            print(input(f"Belphagor used a beam attack. You took {bossbeam} damage. You have {health} left. "))
+                    elif bossatk == 2:
+                        bossbeam = random.randint(10, 40)
+                        if has_redam == True and has_blueam == True and has_greenam == True:
+                            bossbeam = bossbeam / 2
+                            health -= bossbeam - (constitution / 2)
+                            print(input(f"Due to the combined power of the 3 amulets, the punch from Belphagor did half the damage. You took {bossbeam} damage. You have {health} left. "))
+                        else:
+                            health -= bossbeam - (constitution / 2)
+                            print(input(f"Belphagor used a punch attack. You took {bossbeam} damage. You have {health} left. "))
+                    else:
+                        bossbeam = random.randint(1, 20)
+                        if has_redam == True and has_blueam == True and has_greenam == True:
+                            bossbeam = bossbeam / 2
+                            ghealth += bossbeam
+                            print(input(f"Due to the combined power of the 3 amulets, Belphagor only healed half of what he would do normally. Belpahgor has {ghealth} health. "))
+                        else:
+                            ghealth += bossbeam
+                            print(input(f"Belphagor healed {bossbeam}. Belpahgor has {ghealth} health. "))
+                    if health < 1:
+                        print(input("You lose. Press enter to restart fight."))
+                        health = 50
+                        ghealth = 40
+                        atkboost = 0
+                        continue
+                    else:
+                        print(input("Your turn. "))
+            break
+        else:
+            print("Invalid choice.")
+            continue
+    doyoucontinue = input("You beat Belphagor, the world is saved, and you can go back home. Would you like to play again? Type yes if you want to continue, or anything else if you want to leave.")
+    if doyoucontinue == "yes":
+        continue
+    else:
+        break
