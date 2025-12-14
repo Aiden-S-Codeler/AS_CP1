@@ -1,8 +1,30 @@
 #AS 2nd Only Forward
 
-import random
+import random                                                                        
 
-print("placeholder")
+print("      .i1;.    ..     :  .,   .,     .,                                    ")
+print("    L8,   :@i  G@L    @. ;0    C8   :@,                                    ")
+print("   t8       @: Gi.@.  @. ;0     :@.10                                      ")
+print("   t8      .@: Gi  0G.@. ;0      .@L                                       ")
+print("    G@.   .@i  Gi   ,@@. ;0       @;                                       ")
+print("     .,;i;.    ,.     ;. .;;;;;:  :.                                       ")
+print("     ,.                                                                    ")
+print("    f,     i@@@@@@i  .C@@@G.   t@@@0,.0,  .L,   L:  1L    ;@@@8;  f@@@0i   ")
+print("   :@.    .@.      :@,    .@1 .@.  :@.8,  8G,  01 .01@.  .@:  .@..@.   1@. ")
+print("  .G@.    i@GGGC  i@       0t 1C..i@, G:.0.L:.0: .@,.@,  ,@..:@; Lf    .@. ")
+print("  .@@.    @:      LC      t@  @, C0   Ci@, fi@:.t@;;;L8  @i i@   @.   .8:  ")
+print("  .@@C   i0       .@8:.:0@,  L0  .@t  f@.  f@. @t    ,@ ;@   G0 GG,,f@L.   ")
+print("  .8@@;                                                                    ")
+print("   1@@@1                                                                   ")
+print("   .8@@@8.             i,.                                                 ")
+print("     t@@@@@G.          .@@@@@@0i.                                          ")
+print("      ,@@@@@@@@8;,......C@@@@@@@@@@@L                                      ")
+print("        t@@@@@@@@@@@@@@@@@@@@@@@@@@.                                       ")
+print("          ,8@@@@@@@@@@@@@@@@@@@@@:                                         ")
+print("             .i8@@@@@@@@@@@@@@@t                                           ")
+print("                          ,@@0.                                            ")
+print("                           0,                                              ")
+
 print(input("press enter to start "))
 
 money = 0
