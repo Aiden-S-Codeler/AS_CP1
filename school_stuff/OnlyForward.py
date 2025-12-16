@@ -1,5 +1,72 @@
 #AS 2nd Only Forward
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import random                                                                        
 
 print("      .i1;.    ..     :  .,   .,     .,                                    ")
@@ -2679,6 +2746,9 @@ while True:
             continue
     doyoucontinue = input("You beat Belphagor, the world is saved, and you can go back home. Would you like to play again? Type yes if you want to continue, or anything else if you want to leave.")
     if doyoucontinue == "yes":
+        visitfire = False
+        visitwater = False
+        visittown = False
         continue
     else:
         break
