@@ -43,6 +43,7 @@ else:
 print(f"Your race is: {race_chosen}")
 
 # where stats go
+
 stat_list = [stat_1, stat_2, stat_3, stat_4, stat_5, stat_6]
 stren = 0
 dex = 0
@@ -137,6 +138,7 @@ print(f"Recap:\nYour class is: {class_chosen}\nYour race is: {race_chosen}")
 print(f"Your stats are: strength: {stren}, dexterity: {dex}, constitution: {con}, inteligence: {intel}, wisdom: {wis}, dexterity: {dex}")
 
 # Health
+
 lvl = int(input("What is your starting level? "))
 health = 0
 d12_hlist = ["Barbarian"]
