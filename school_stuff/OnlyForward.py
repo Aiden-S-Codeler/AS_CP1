@@ -1,5 +1,72 @@
 #AS 2nd Only Forward
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import random                                                                        
 
 print("      .i1;.    ..     :  .,   .,     .,                                    ")
@@ -513,7 +580,7 @@ def firepath(uclass, health, ac, money, strength, constitution, inteligence, cha
                 else:
                     print("You dont have access to this attack yet.\nYou will unlock this in a shop at the end of the water path is you decide to go there and purchase it. ")
                     continue
-            elif action == "black hole":
+            elif action == "blackhole":
                 if has_bhstaff == True:
                     dmg_roll = random.randint(1, 100) + 5 + atkboost + (inteligence/ 2)
                     if has_redam == True:
@@ -1569,7 +1636,7 @@ def townpath(uclass, health, ac, money, strength, constitution, inteligence, cha
                 continue
             if ghealth < 1:
                 print(input("You win the fight. "))
-                has_redam = True
+                has_greenam = True
                 break
             else:
                 print(input("Dog turn. "))
@@ -1804,7 +1871,7 @@ def townpath(uclass, health, ac, money, strength, constitution, inteligence, cha
                 continue
             if ghealth < 1:
                 print(input("You win the fight. "))
-                has_redam = True
+                has_greenam = True
                 break
             else:
                 print(input("Dog turn. "))
@@ -1830,7 +1897,7 @@ def townpath(uclass, health, ac, money, strength, constitution, inteligence, cha
             if action == "befriend":
                 roll = random.randint(1, 20) + (inteligence/2)
                 if roll >= 18:
-                    frog_friend = True
+                    dog_friend = True
                     print(input("You have befriended the Dog! You win the fight. "))
                     break
                 else:
@@ -1945,7 +2012,7 @@ def townpath(uclass, health, ac, money, strength, constitution, inteligence, cha
                 continue
             if ghealth < 1:
                 print(input("You win the fight. "))
-                has_redam = True
+                has_greenam = True
                 break
             else:
                 print(input("Dog turn. "))
@@ -2078,21 +2145,21 @@ while True:
             continue
     while True:
         choose_path = input("Now that you have made it through that path, would you like to take: fire path, water path, town path, ot move onto the boss?")
-        if choose_path == "fire":
+        if choose_path == "fire" or choose_path == "fire path":
             if visitfire == False:
                 uclass, health, ac, money, strength, constitution, inteligence, charisma, has_coolsword, gob_friend, has_redam, has_bomb, has_wararmor, has_warstick, has_bhstaff, has_blueam, has_book, has_schocloak, has_schostick, has_sax, has_greenam, has_drums, has_piccolo, has_sunglasses = firepath(uclass, health, ac, money, strength, constitution, inteligence, charisma, has_coolsword, gob_friend, has_redam, has_bomb, has_wararmor, has_warstick, has_bhstaff, has_blueam, has_book, has_schocloak, has_schostick, has_sax, has_greenam, has_drums, has_piccolo, has_sunglasses)
                 visitfire = True
                 continue
             else:
                 print("You already did this path.")
-        elif choose_path == "water":
+        elif choose_path == "water" or choose_path == "water path":
             if visitwater == False:
                 uclass, health, ac, money, strength, constitution, inteligence, charisma, has_coolsword, frog_friend, has_redam, has_bomb, has_wararmor, has_warstick, has_bhstaff, has_blueam, has_book, has_schocloak, has_schostick, has_sax, has_greenam, has_drums, has_piccolo, has_sunglasses = waterpath(uclass, health, ac, money, strength, constitution, inteligence, charisma, has_coolsword, frog_friend, has_redam, has_bomb, has_wararmor, has_warstick, has_bhstaff, has_blueam, has_book, has_schocloak, has_schostick, has_sax, has_greenam, has_drums, has_piccolo, has_sunglasses)
                 visitwater = True
                 continue
             else:
                 print("You already did this path.")
-        elif choose_path == "town":
+        elif choose_path == "town" or choose_path == "town path":
             if visittown == False:
                 uclass, health, ac, money, strength, constitution, inteligence, charisma, has_coolsword, dog_friend, has_redam, has_bomb, has_wararmor, has_warstick, has_bhstaff, has_blueam, has_book, has_schocloak, has_schostick, has_sax, has_greenam, has_drums, has_piccolo, has_sunglasses = townpath(uclass, health, ac, money, strength, constitution, inteligence, charisma, has_coolsword, dog_friend, has_redam, has_bomb, has_wararmor, has_warstick, has_bhstaff, has_blueam, has_book, has_schocloak, has_schostick, has_sax, has_greenam, has_drums, has_piccolo, has_sunglasses)
                 visittown = True
@@ -2679,6 +2746,9 @@ while True:
             continue
     doyoucontinue = input("You beat Belphagor, the world is saved, and you can go back home. Would you like to play again? Type yes if you want to continue, or anything else if you want to leave.")
     if doyoucontinue == "yes":
+        visitfire = False
+        visitwater = False
+        visittown = False
         continue
     else:
         break
